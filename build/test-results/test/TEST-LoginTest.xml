@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="LoginTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-03-01T16:09:00" hostname="DESKTOP-5ICQQV1" time="4.97">
+  <properties/>
+  <testcase name="successfulLoginWithCommentsTest()" classname="LoginTest" time="4.97"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Starting ChromeDriver 110.0.5481.77 (65ed616c6e8ee3fe0ad64fe83796c020644d42af-refs/branch-heads/5481@{#839}) on port 55994
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+[1677686942.176][WARNING]: virtual void DevToolsClientImpl::AddListener(DevToolsEventListener *) subscribing a listener to the already connected DevToolsClient. Connection notification will not arrive.
+мар. 01, 2023 7:09:02 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+мар. 01, 2023 7:09:02 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find an exact match for CDP version 110, so returning the closest version found: a no-op implementation
+мар. 01, 2023 7:09:02 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+INFO: Unable to find CDP implementation matching 110.
+мар. 01, 2023 7:09:02 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$3
+WARNING: Unable to find version of CDP to use for . You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.1.2` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+</testsuite>
