@@ -19,15 +19,17 @@ public class WritePracticeForm {
     @Test
     void successfulLoginTest(){
         open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         //Name
-        $("[id=firstName]").setValue("Mariya");
-        $("[id=lastName]").setValue("Katasonova");
+        $("#firstName").setValue("Mariya");
+        $("#lastName").setValue("Katasonova");
         //Email
-        $("[id=userEmail]").setValue("Mariya.Katasonova@nedra.digit");
+        $("#userEmail").setValue("Mariya.Katasonova@nedra.digit");
         //Gender
         $("#gender-radio-2").sendKeys(" ");
         //Mobile
-        $("[id=userNumber]").setValue("8902670735");
+        $("#userNumber").setValue("8902670735");
         //Date of Birrth
         $x("//*[@id='dateOfBirthInput']").click();
         $(".react-datepicker__month-select").click();
