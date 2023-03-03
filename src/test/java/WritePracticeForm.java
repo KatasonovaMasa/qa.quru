@@ -6,6 +6,7 @@ import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static org.openqa.selenium.Keys.ENTER;
 
@@ -31,19 +32,16 @@ public class WritePracticeForm {
         //Mobile
         $("#userNumber").setValue("8902670735");
         //Date of Birrth
-        $x("//*[@id='dateOfBirthInput']").click();
-        $(".react-datepicker__month-select").click();
-        $x("//option[contains(text(),'January')]").click();
-        $(".react-datepicker__year-select").click();
-        $x("//option[contains(text(),'1989')]").click();
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__month-dropdown-container").$(byText("January")).click();
+        $(".react-datepicker__year-dropdown-container").$(byText("1989")).click();
         $("[aria-label='Choose Sunday, January 8th, 1989']").click();
         //Subjects
-        $("#subjectsInput").setValue("English").sendKeys(ENTER);
+        $("#subjectsInput").setValue("English").pressEnter();
         //Hobbies
         $("#hobbies-checkbox-2").sendKeys(" ");
         //Picture
-        File fileToUpload = new File("src/test/resources/pictures/QA.gif");
-        $("#uploadPicture").uploadFile(fileToUpload);
+        $("#uploadPicture").uploadFromClasspath("pictures/QA.gif");
         //Current Address
         $("#currentAddress").setValue("Россия, Республика Марий Эл, г. Йошкар-Ола, ул. Первомайская, д.164");
         //State and City
@@ -52,19 +50,12 @@ public class WritePracticeForm {
         $("#city").click();
         $("#react-select-4-option-0").click();
         //submit
-        $("#submit").sendKeys(ENTER);
-
-        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $x("//td[text()='Mariya Katasonova']").shouldBe(visible);
-        $x("//td[text()='Mariya.Katasonova@nedra.digit']").shouldBe(visible);
-        $x("//td[text()='Female']").shouldBe(visible);
-        $x("//td[text()='8902670735']").shouldBe(visible);
-        $x("//td[text()='08 January,1989']").shouldBe(visible);
-        $x("//td[text()='English']").shouldBe(visible);
-        $x("//td[text()='Reading']").shouldBe(visible);
-        $x("//td[text()='QA.gif']").shouldBe(visible);
-        $x("//td[contains(text(), 'Россия, Республика Марий Эл, г. Йошкар-Ола, ул. Первомайская, д.164')]").shouldBe(visible);
-        $x("//td[text()='Haryana Karnal']").shouldBe(visible);
-        $x("//button[text()=\"Close\"]").click();
+        $("#submit").pressEnter();
+       //Проверка формы
+        $(".modal-content").shouldHave(text("Thanks for submitting the form"),
+                text("Mariya Katasonova"), text("Mariya.Katasonova@nedra.digit"), text("Female"), text("8902670735"), text("08 January,1989"),
+                text("English"), text("Reading"), text("QA.gif"), text("Россия, Республика Марий Эл, г. Йошкар-Ола, ул. Первомайская, д.164"),
+                text("Haryana Karnal"));
+        $("#closeLargeModal").click();
     }
 }
