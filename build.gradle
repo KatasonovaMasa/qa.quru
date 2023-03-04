@@ -9,7 +9,9 @@ repositories {
 dependencies {
     testImplementation (
             "com.codeborne:selenide:6.3.5",
-            "org.junit.jupiter:junit-jupiter:5.8.2")
+            "org.junit.jupiter:junit-jupiter:5.8.2",
+            "io.qameta.allure:allure-junit5:2.18.1",
+            "org.junit.jupiter:junit-jupiter-api:5.6.2")
 }
 
 tasks.withType(JavaCompile) {
@@ -17,5 +19,6 @@ tasks.withType(JavaCompile) {
 }
 
 test {
+  //  systemProperty "chromeoptions.prefs", "init.accept_languages=ru"
     useJUnitPlatform()
 }
