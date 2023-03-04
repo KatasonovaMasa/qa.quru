@@ -23,9 +23,10 @@ public class OpenSelenideSoftAssertionsJunitTest {
         //Перейдите в раздел Wiki проекта
         $("#wiki-tab").click();
         //Убедитесь, что в списке страниц (Pages) есть страница SoftAssertions
-        $(".markdown-body").shouldHave(text("Soft assertions"));
+        $("[id='wiki-pages-filter']").setValue("SoftAssertions").pressEnter();
+        $x("//a[text()='SoftAssertions']").shouldHave(text("SoftAssertions"));
         //Откройте страницу SoftAssertions, проверьте что внутри есть пример кода для JUnit5
-        $x("//a[text()='Soft assertions']").click();
+        $x("//a[contains(text(),'SoftAssertions')]").click();
         $("[id=\"wiki-content\"]").shouldHave(text("Using JUnit5 extend test class:")).click();
     }
 }
