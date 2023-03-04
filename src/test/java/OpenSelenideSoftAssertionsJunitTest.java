@@ -14,8 +14,8 @@ public class OpenSelenideSoftAssertionsJunitTest {
     }
 
         @Test
-        void successfulLoginTest(){
-        //Откройте страницу Selenide в Github
+        void openSelenideSoftAssertionsJunitTest(){
+        //Откойте страницу Selenide в Github
         open("https://github.com/");
         $("[aria-label=\"Search GitHub\"]").setValue("selenide").pressEnter();
         $$("ul.repo-list li").first().$("a").click();
