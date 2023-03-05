@@ -33,7 +33,7 @@ public class WritePracticeFormTest extends TestBase {
                 .setCurrentAddress(address)
                 .setState(state)
                 .setCity(city)
-                .setSubmit()
+                .submit()
         ;
 
        //Проверка формы

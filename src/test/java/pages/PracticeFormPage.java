@@ -92,7 +92,6 @@ public class PracticeFormPage {
     public PracticeFormPage setState(String value) {
         state.click();
         $("#stateCity-wrapper").$(byText("Haryana")).click();
-      //  $("#react-select-3-option-2").click();
         return this;
     }
 
@@ -102,7 +101,7 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage setSubmit() {
+    public PracticeFormPage submit() {
         submit.click();
         return this;
     }
