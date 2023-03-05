@@ -41,17 +41,17 @@ public class PracticeFormPage {
     }
 
 
-    public PracticeFormPage setFirstNameInput(String value) {
+    public PracticeFormPage setFirstName(String value) {
         firstNameInput.setValue(value);
         return this;
     }
 
-    public PracticeFormPage setLastNameInput(String value) {
+    public PracticeFormPage setLastName(String value) {
         lastNameInput.setValue(value);
         return this;
     }
 
-    public PracticeFormPage setEmailInput(String value) {
+    public PracticeFormPage setEmail(String value) {
         emailInput.setValue(value);
         return this;
     }
@@ -60,7 +60,7 @@ public class PracticeFormPage {
         genderRadio.sendKeys(" ");
         return this;
     }
-    public PracticeFormPage setUserNumber(String value) {
+    public PracticeFormPage setUserNumberMobile(String value) {
         userNumber.setValue(value);
         return this;
     }
