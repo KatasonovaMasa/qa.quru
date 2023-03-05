@@ -39,7 +39,6 @@ public class PracticeFormPage {
         return this;
     }
 
-
     public PracticeFormPage setFirstName(String value) {
         firstNameInput.setValue(value);
         return this;
@@ -59,6 +58,7 @@ public class PracticeFormPage {
         genderRadio.sendKeys(" ");
         return this;
     }
+
     public PracticeFormPage setUserNumberMobile(String value) {
         userNumber.setValue(value);
         return this;
@@ -89,15 +89,16 @@ public class PracticeFormPage {
         currentAddress.setValue(value);
         return this;
     }
+
     public PracticeFormPage setState(String value) {
         state.click();
-        $("#stateCity-wrapper").$(byText("Haryana")).click();
+        state.$(byText(value)).click();
         return this;
     }
 
     public PracticeFormPage setCity(String value) {
         city.click();
-        $("#stateCity-wrapper").$(byText("Karnal")).click();
+        city.$(byText(value)).click();
         return this;
     }
 
@@ -105,10 +106,12 @@ public class PracticeFormPage {
         submit.click();
         return this;
     }
+
     public PracticeFormPage verifyModalAppears() {
         resultsModal.verifyModalAppears();
         return this;
     }
+
     public PracticeFormPage isResultFormElementPresent(String key, String value) {
         resultsModal.verifyResult(key, value);
         return this;
