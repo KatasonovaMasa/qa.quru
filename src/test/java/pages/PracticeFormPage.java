@@ -12,20 +12,19 @@ public class PracticeFormPage {
     private final ResultsModal resultsModal = new ResultsModal();
     private final SelenideElement
             firstNameInput = $("#firstName");
-    private SelenideElement lastNameInput = $("#lastName");
-    private SelenideElement emailInput = $("#userEmail");
-    private SelenideElement genderRadio = $("#gender-radio-2");
-    private SelenideElement userNumber = $("#userNumber");
-    private SelenideElement dateOfBirthInput = $("#dateOfBirthInput");
-    private SelenideElement subjectsInput = $("#subjectsInput");
-    private SelenideElement hobbiesCheckbox = $("#hobbiesWrapper");
-    private SelenideElement uploadFromClasspath = $("#uploadPicture");
-    private SelenideElement currentAddress = $("#currentAddress");
-    private SelenideElement state = $("#state");
-    private SelenideElement city = $("#city");
-    private SelenideElement submit = $("#submit");
-
-    private SelenideElement close = $("#closeLargeModal");
+    private final SelenideElement lastNameInput = $("#lastName");
+    private final SelenideElement emailInput = $("#userEmail");
+    private final SelenideElement genderRadio = $("#gender-radio-2");
+    private final SelenideElement userNumber = $("#userNumber");
+    private final SelenideElement dateOfBirthInput = $("#dateOfBirthInput");
+    private final SelenideElement subjectsInput = $("#subjectsInput");
+    private final SelenideElement hobbiesCheckbox = $("#hobbiesWrapper");
+    private final SelenideElement uploadFromClasspath = $("#uploadPicture");
+    private final SelenideElement currentAddress = $("#currentAddress");
+    private final SelenideElement state = $("#state");
+    private final SelenideElement city = $("#city");
+    private final SelenideElement submit = $("#submit");
+    private final SelenideElement close = $("#closeLargeModal");
 
     public PracticeFormPage openPage(){
         open("/automation-practice-form");
@@ -33,6 +32,13 @@ public class PracticeFormPage {
         executeJavaScript("$('footer').remove()");
         return this;
     }
+
+    public PracticeFormPage deleteBanerPage(){
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+        return this;
+    }
+
 
     public PracticeFormPage setFirstNameInput(String value) {
         firstNameInput.setValue(value);

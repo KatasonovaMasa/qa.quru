@@ -20,6 +20,7 @@ public class WritePracticeFormTest extends TestBase {
             city = "Karnal";
 
         practiceFormPage.openPage()
+                .deleteBanerPage()
                 .setFirstNameInput(username)
                 .setLastNameInput(lastname)
                 .setEmailInput(email)
