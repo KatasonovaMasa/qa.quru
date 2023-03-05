@@ -13,7 +13,7 @@ public class PracticeFormPage {
     private final SelenideElement firstNameInput = $("#firstName");
     private final SelenideElement lastNameInput = $("#lastName");
     private final SelenideElement emailInput = $("#userEmail");
-    private final SelenideElement genderRadio = $("#gender-radio-2");
+    private final SelenideElement genderRadio = $("#genterWrapper");
     private final SelenideElement userNumber = $("#userNumber");
     private final SelenideElement subjectsInput = $("#subjectsInput");
     private final SelenideElement hobbiesCheckbox = $("#hobbiesWrapper");
@@ -54,8 +54,8 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage setGenderRadio(String gender) {
-        genderRadio.sendKeys(" ");
+    public PracticeFormPage setGenderRadio(String value) {
+        genderRadio.$(byText(value)).click();
         return this;
     }
 
@@ -75,8 +75,8 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage setHobbiesCheckbox(String hobbies) {
-        hobbiesCheckbox.$(byText("Reading")).click();
+    public PracticeFormPage setHobbiesCheckbox(String value) {
+        hobbiesCheckbox.$(byText(value)).click();
         return this;
     }
 
