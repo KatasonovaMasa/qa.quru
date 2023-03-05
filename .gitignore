@@ -1,7 +1,8 @@
 /.idea
 /.gradle
-/build
 /allure-results
+/build
+
 
 # Compiled class file
 *.class
