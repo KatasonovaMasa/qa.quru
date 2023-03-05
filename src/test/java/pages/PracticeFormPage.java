@@ -8,24 +8,24 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormPage {
-    private CalendarComponent calendarComponent = new CalendarComponent();
-    private ResultsModal resultsModal = new ResultsModal();
-    private SelenideElement
-            firstNameInput = $("#firstName"),
-            lastNameInput = $("#lastName"),
-            emailInput = $("#userEmail"),
-            genderRadio = $("#gender-radio-2"),
-            userNumber = $("#userNumber"),
-            dateOfBirthInput = $("#dateOfBirthInput"),
-            subjectsInput = $("#subjectsInput"),
-            hobbiesCheckbox = $("#hobbiesWrapper"),
-            uploadFromClasspath = $("#uploadPicture"),
-            currentAddress = $("#currentAddress"),
-            state = $("#state"),
-            city = $("#city"),
-            submit = $("#submit"),
+    private final CalendarComponent calendarComponent = new CalendarComponent();
+    private final ResultsModal resultsModal = new ResultsModal();
+    private final SelenideElement
+            firstNameInput = $("#firstName");
+    private SelenideElement lastNameInput = $("#lastName");
+    private SelenideElement emailInput = $("#userEmail");
+    private SelenideElement genderRadio = $("#gender-radio-2");
+    private SelenideElement userNumber = $("#userNumber");
+    private SelenideElement dateOfBirthInput = $("#dateOfBirthInput");
+    private SelenideElement subjectsInput = $("#subjectsInput");
+    private SelenideElement hobbiesCheckbox = $("#hobbiesWrapper");
+    private SelenideElement uploadFromClasspath = $("#uploadPicture");
+    private SelenideElement currentAddress = $("#currentAddress");
+    private SelenideElement state = $("#state");
+    private SelenideElement city = $("#city");
+    private SelenideElement submit = $("#submit");
 
-            close = $("#closeLargeModal");
+    private SelenideElement close = $("#closeLargeModal");
 
     public PracticeFormPage openPage(){
         open("/automation-practice-form");
