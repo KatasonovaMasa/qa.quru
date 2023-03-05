@@ -15,7 +15,6 @@ public class PracticeFormPage {
     private final SelenideElement emailInput = $("#userEmail");
     private final SelenideElement genderRadio = $("#gender-radio-2");
     private final SelenideElement userNumber = $("#userNumber");
-    private final SelenideElement dateOfBirthInput = $("#dateOfBirthInput");
     private final SelenideElement subjectsInput = $("#subjectsInput");
     private final SelenideElement hobbiesCheckbox = $("#hobbiesWrapper");
     private final SelenideElement uploadFromClasspath = $("#uploadPicture");
@@ -66,7 +65,7 @@ public class PracticeFormPage {
     }
 
     public PracticeFormPage setBirthDate(String day, String month, String year) {
-        dateOfBirthInput.click();
+        calendarComponent.setDateOfBirth();
         calendarComponent.setDate(day, month, year);
         return this;
     }
