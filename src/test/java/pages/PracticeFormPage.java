@@ -104,7 +104,7 @@ public class PracticeFormPage {
         resultsModal.verifyModalAppears();
         return this;
     }
-    public PracticeFormPage verifyResult(String key, String value) {
+    public PracticeFormPage isResultFormElementPresent(String key, String value) {
         resultsModal.verifyResult(key, value);
         return this;
     }

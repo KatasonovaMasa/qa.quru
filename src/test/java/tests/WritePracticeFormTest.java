@@ -1,13 +1,6 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import pages.PracticeFormPage;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
 
 public class WritePracticeFormTest extends TestBase {
 
@@ -44,16 +37,16 @@ public class WritePracticeFormTest extends TestBase {
 
        //Проверка формы
         practiceFormPage.verifyModalAppears()
-                .verifyResult("Student Name", username + " " + lastname)
-                .verifyResult("Student Email", email)
-                .verifyResult("Gender", gender)
-                .verifyResult("Mobile", number)
-                .verifyResult("Date of Birth", "08 January,1989")
-                .verifyResult("Subjects", subjects)
-                .verifyResult("Hobbies", hobbies)
-                .verifyResult("Picture", picture)
-                .verifyResult("Address", address)
-                .verifyResult("State and City", state + " " + city)
+                .isResultFormElementPresent("Student Name", username + " " + lastname)
+                .isResultFormElementPresent("Student Email", email)
+                .isResultFormElementPresent("Gender", gender)
+                .isResultFormElementPresent("Mobile", number)
+                .isResultFormElementPresent("Date of Birth", "08 January,1989")
+                .isResultFormElementPresent("Subjects", subjects)
+                .isResultFormElementPresent("Hobbies", hobbies)
+                .isResultFormElementPresent("Picture", picture)
+                .isResultFormElementPresent("Address", address)
+                .isResultFormElementPresent("State and City", state + " " + city)
                 .close();
     }
 }
