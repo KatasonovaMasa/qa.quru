@@ -10,8 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class PracticeFormPage {
     private final CalendarComponent calendarComponent = new CalendarComponent();
     private final ResultsModal resultsModal = new ResultsModal();
-    private final SelenideElement
-            firstNameInput = $("#firstName");
+    private final SelenideElement firstNameInput = $("#firstName");
     private final SelenideElement lastNameInput = $("#lastName");
     private final SelenideElement emailInput = $("#userEmail");
     private final SelenideElement genderRadio = $("#gender-radio-2");
@@ -25,6 +24,8 @@ public class PracticeFormPage {
     private final SelenideElement city = $("#city");
     private final SelenideElement submit = $("#submit");
     private final SelenideElement close = $("#closeLargeModal");
+
+    String upload = "pictures/QA.gif";
 
     public PracticeFormPage openPage(){
         open("/automation-practice-form");
@@ -81,7 +82,7 @@ public class PracticeFormPage {
     }
 
     public PracticeFormPage setUploadFromClasspath() {
-        uploadFromClasspath.uploadFromClasspath("pictures/QA.gif");
+        uploadFromClasspath.uploadFromClasspath(upload);
         return this;
     }
 
