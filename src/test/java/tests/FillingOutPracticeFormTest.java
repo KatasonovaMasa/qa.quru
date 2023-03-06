@@ -3,10 +3,10 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import pages.PracticeFormPhoto;
+import pages.PracticeFormPage;
 
 public class FillingOutPracticeFormTest {
-    PracticeFormPhoto practiceFormPhoto = new PracticeFormPhoto();
+    PracticeFormPage practiceFormPage = new PracticeFormPage();
     @BeforeAll
     static void beforeAll(){
         Configuration.browserSize = "1920x1080";
@@ -29,8 +29,8 @@ public class FillingOutPracticeFormTest {
             state = "Haryana",
             city = "Karnal";
 
-        practiceFormPhoto.openPage()
-                .deleteBaner()
+        practiceFormPage.openPage()
+                .deleteBanner()
                 .setFirstName(firstname)
                 .setLastName(lastname)
                 .setEmail(email)
@@ -47,7 +47,7 @@ public class FillingOutPracticeFormTest {
         ;
 
        //Проверка формы
-        practiceFormPhoto.verifyModalAppears()
+        practiceFormPage.verifyModalAppears()
                 .isResultFormElementPresent("Student Name", firstname + " " + lastname)
                 .isResultFormElementPresent("Student Email", email)
                 .isResultFormElementPresent("Gender", gender)

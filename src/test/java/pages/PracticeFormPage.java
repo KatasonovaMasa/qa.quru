@@ -7,7 +7,7 @@ import pages.components.ResultsModal;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class PracticeFormPhoto {
+public class PracticeFormPage {
     private final CalendarComponent calendarComponent = new CalendarComponent();
     private final ResultsModal resultsModal = new ResultsModal();
     private final SelenideElement firstNameInput = $("#firstName");
@@ -24,97 +24,95 @@ public class PracticeFormPhoto {
     private final SelenideElement submit = $("#submit");
     private final SelenideElement close = $("#closeLargeModal");
 
-    public PracticeFormPhoto openPage(){
+    public PracticeFormPage openPage(){
         open("/automation-practice-form");
+       return this;
+    }
+
+    public PracticeFormPage deleteBanner(){
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
     }
 
-    public PracticeFormPhoto deleteBaner(){
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
-        return this;
-    }
-
-    public PracticeFormPhoto setFirstName(String value) {
+    public PracticeFormPage setFirstName(String value) {
         firstNameInput.setValue(value);
         return this;
     }
 
-    public PracticeFormPhoto setLastName(String value) {
+    public PracticeFormPage setLastName(String value) {
         lastNameInput.setValue(value);
         return this;
     }
 
-    public PracticeFormPhoto setEmail(String value) {
+    public PracticeFormPage setEmail(String value) {
         emailInput.setValue(value);
         return this;
     }
 
-    public PracticeFormPhoto setGenderRadio(String value) {
+    public PracticeFormPage setGenderRadio(String value) {
         genderRadio.$(byText(value)).click();
         return this;
     }
 
-    public PracticeFormPhoto setUserNumberMobile(String value) {
+    public PracticeFormPage setUserNumberMobile(String value) {
         userNumber.setValue(value);
         return this;
     }
 
-    public PracticeFormPhoto setBirthDay (String day, String month, String year) {
+    public PracticeFormPage setBirthDay (String day, String month, String year) {
         calendarComponent.setDate(day, month, year);
         return this;
     }
 
-    public PracticeFormPhoto setSubjectsInput(String value) {
+    public PracticeFormPage setSubjectsInput(String value) {
         subjectsInput.setValue(value).pressEnter();
         return this;
     }
 
-    public PracticeFormPhoto setHobbiesCheckbox(String value) {
+    public PracticeFormPage setHobbiesCheckbox(String value) {
         hobbiesCheckbox.$(byText(value)).click();
         return this;
     }
 
-    public PracticeFormPhoto setUploadFromClasspath(String value) {
+    public PracticeFormPage setUploadFromClasspath(String value) {
         uploadFromClasspath.uploadFromClasspath(value);
         return this;
     }
 
-    public PracticeFormPhoto setCurrentAddress(String value) {
+    public PracticeFormPage setCurrentAddress(String value) {
         currentAddress.setValue(value);
         return this;
     }
 
-    public PracticeFormPhoto setState(String value) {
+    public PracticeFormPage setState(String value) {
         state.click();
         state.$(byText(value)).click();
         return this;
     }
 
-    public PracticeFormPhoto setCity(String value) {
+    public PracticeFormPage setCity(String value) {
         city.click();
         city.$(byText(value)).click();
         return this;
     }
 
-    public PracticeFormPhoto submit() {
+    public PracticeFormPage submit() {
         submit.click();
         return this;
     }
 
-    public PracticeFormPhoto verifyModalAppears() {
+    public PracticeFormPage verifyModalAppears() {
         resultsModal.verifyModalAppears();
         return this;
     }
 
-    public PracticeFormPhoto isResultFormElementPresent(String key, String value) {
+    public PracticeFormPage isResultFormElementPresent(String key, String value) {
         resultsModal.verifyResult(key, value);
         return this;
     }
 
-    public PracticeFormPhoto close() {
+    public PracticeFormPage close() {
         close.click();
         return this;
     }
