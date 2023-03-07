@@ -1,4 +1,4 @@
-package tests;
+package tests.othersDZ;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
