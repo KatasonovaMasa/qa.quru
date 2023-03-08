@@ -7,6 +7,21 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomUtils {
 
+    public static String[] genders = {"Male", "Female", "Other"},
+            hobbiess = {"Reading", "Sports", "Music"},
+            subjects = {"Accounting", "Maths", "Arts", "English", "Physics", "Chemistry", "Computer Science", "Economics", "Social Studies", "History", "Civics", "Commerce", "Hindi", "Biology"},
+            citys = {"Delhi", "Gurgaon", "Noida"};
+
+    public static String getRandomItemFromArray(String[] values) {
+        int index = getRandomInt(0, values.length - 1);
+
+        return values[index];
+    }
+
+    public static String getRandomName() {
+        return new Faker().name().firstName();
+    }
+
     public static void main(String[] args) {
         System.out.println(getRandomString(10));
         System.out.println(getRandomInt(10, 100));
@@ -35,13 +50,5 @@ public class RandomUtils {
         return getRandomString(10) + "@qa.guru";
     }
 
-    public static String getRandomItemFromArray(String[] values) {
-        int index = getRandomInt(0, values.length - 1);
 
-        return values[index];
-    }
-
-    public static String getRandomName() {
-        return new Faker().name().firstName();
-    }
 }

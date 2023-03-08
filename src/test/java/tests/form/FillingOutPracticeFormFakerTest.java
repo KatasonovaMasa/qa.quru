@@ -6,26 +6,19 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.PracticeFormPage;
 
-import static utils.RandomUtils.getRandomItemFromArray;
+import static utils.RandomUtils.*;
 
 public class FillingOutPracticeFormFakerTest {
     Faker faker = new Faker();
     PracticeFormPage practiceFormPage = new PracticeFormPage();
-
+ 
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
     }
-
     @Test
     void successfulLoginTest() {
-        String[] genders = {"Male", "Female", "Other"},
-                hobbiess = {"Reading", "Sports", "Music"},
-                subjects = {"Accounting", "Maths", "Arts", "English", "Physics", "Chemistry", "Computer Science", "Economics", "Social Studies", "History", "Civics", "Commerce", "Hindi", "Biology"},
-                citys = {"Delhi", "Gurgaon", "Noida"};
-
-
         String firstname = faker.name().firstName(),
                 lastname = faker.name().lastName(),
                 email = faker.internet().emailAddress(),
@@ -40,7 +33,6 @@ public class FillingOutPracticeFormFakerTest {
                 address = faker.address().fullAddress(),
                 state = "NCR",
                 city = getRandomItemFromArray(citys);
-
 
         practiceFormPage.openPage()
                 .deleteBanner()
@@ -71,6 +63,5 @@ public class FillingOutPracticeFormFakerTest {
                 .isResultFormElementPresent("Address", address)
                 .isResultFormElementPresent("State and City", state + " " + city)
                 .close();
-
     }
 }
