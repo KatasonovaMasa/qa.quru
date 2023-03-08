@@ -1,14 +1,12 @@
-package tests.form;
+package tests.othersDZ;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import pages.PracticeFormPage;
+import pages.RegistrationPage;
 
-import static tests.form.TestData.*;
-
-public class FillingOutPracticeFormTest {
-    PracticeFormPage practiceFormPage = new PracticeFormPage();
+public class RegistrationPageObjectTest {
+    RegistrationPage registrationPage = new RegistrationPage();
     @BeforeAll
     static void beforeAll(){
         Configuration.browserSize = "1920x1080";
