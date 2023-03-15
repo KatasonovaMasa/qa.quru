@@ -66,7 +66,7 @@ public class OpenGitHubPagesTest {
         return Stream.of("SoftAssertions", "Snippets");
     }
     @MethodSource("argumentsStream")
-    @ParameterizedTest(name = " {0}")
+    @ParameterizedTest(name = "Открытие на гитхабе страниц {0} должен отображаться текст {0}")
     @Tags({
             @Tag("BLOCKER"),
             @Tag("WEB")
