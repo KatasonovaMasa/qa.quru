@@ -36,7 +36,7 @@ public class OpenGitHubPagesTest {
             @Tag("BLOCKER"),
             @Tag("WEB")
     })
-    void OpenGitHubPagesTest(String testData, String expectedText){
+    void openGitHubPagesTest(String testData, String expectedText){
         $("[aria-label=\"Search GitHub\"]").setValue("selenide").pressEnter();
         $$("ul.repo-list li").first().$("a").click();
         $("#repository-container-header").shouldHave(text("selenide / selenide"));
@@ -54,7 +54,7 @@ public class OpenGitHubPagesTest {
             @Tag("BLOCKER"),
             @Tag("WEB")
     })
-    void OpenGitHubPagesTest2(String testData){
+    void openGitHubPagesTest2(String testData){
         $("[aria-label=\"Search GitHub\"]").setValue("selenide").pressEnter();
         $$("ul.repo-list li").first().$("a").click();
         $("#repository-container-header").shouldHave(text("selenide / selenide"));
@@ -71,7 +71,7 @@ public class OpenGitHubPagesTest {
             @Tag("BLOCKER"),
             @Tag("WEB")
     })
-    void OpenGitHubPagesTest3(String testData) {
+    void openGitHubPagesTest3(String testData) {
         $("[aria-label=\"Search GitHub\"]").setValue("selenide").pressEnter();
         $$("ul.repo-list li").first().$("a").click();
         $("#repository-container-header").shouldHave(text("selenide / selenide"));
