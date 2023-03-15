@@ -8,8 +8,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
-import static utils.RandomUtils.*;
-
 public class RegistrationPageObjectFakerTest {
     Faker faker = new Faker();
     RegistrationPage registrationPage = new RegistrationPage();

@@ -1,5 +1,6 @@
 package generators;
 
+import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.Faker;
 import model.StudentData;
 import org.apache.commons.lang3.StringUtils;
