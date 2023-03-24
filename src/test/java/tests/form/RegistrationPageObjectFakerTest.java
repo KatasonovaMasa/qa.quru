@@ -5,19 +5,24 @@ import com.github.javafaker.Faker;
 import generators.StudentDataGenerator;
 import model.StudentData;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
-public class RegistrationPageObjectFakerTest {
+
+@Tag("demoqa")
+public class RegistrationPageObjectFakerTest extends TestBase{
     Faker faker = new Faker();
     RegistrationPage registrationPage = new RegistrationPage();
  
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
-    }
+//    @BeforeAll
+//    static void beforeAll() {
+//        Configuration.browserSize = "1920x1080";
+//        Configuration.baseUrl = "https://demoqa.com";
+//    }
     @Test
+    @DisplayName("Registration new student")
     void successfulLoginTest() {
         StudentData newStudentData = StudentDataGenerator.getRandomStudent();
 

@@ -1,9 +1,34 @@
 plugins {
     id 'java-library'
+    id 'java'
+    id ('io.qameta.allure') version '2.11.2'
+}
+
+group 'quru.qa'
+version '1.0-SNAPSHOT'
+
+allure{
+    report {
+        version.set("2.19.0")
+    }
+    adapter { // отвечает за появление папочки build/allure-results
+        aspectjWeaver.set(true) //обработка аннотации @Step
+        frameworks {
+            junit5 { //название фреймворка
+                adapterVersion.set("2.19.0") //версия интеграции фреймворка и Allure
+            }
+        }
+    }
 }
 
 repositories {
     mavenCentral()
+    compileJava {
+        options.encoding = 'UTF-8'
+    }
+    compileTestJava {
+        options.encoding = 'UTF-8'
+    }
 }
 
 compileJava{
@@ -17,10 +42,18 @@ compileTestJava{
 
 dependencies {
     testImplementation (
-            "com.codeborne:selenide:6.12.2",
             "org.junit.jupiter:junit-jupiter:5.9.2",
             "io.qameta.allure:allure-junit5:2.18.1",
             "org.junit.jupiter:junit-jupiter-api:5.6.2",
+            'com.codeborne:selenide:6.12.3',
+            "org.slf4j:slf4j-simple:2.0.6",
+            "com.github.javafaker:javafaker:1.0.2",
+            'com.codeborne:pdf-test:1.5.0',
+            'com.codeborne:xls-test:1.4.3',
+            'com.opencsv:opencsv:5.7.1',
+            'com.fasterxml.jackson.core:jackson-core:2.14.2',
+            'com.fasterxml.jackson.core:jackson-databind:2.14.2',
+            'io.qameta.allure:allure-selenide:2.21.0'
      )
 }
 dependencies {
@@ -34,4 +67,10 @@ tasks.withType(JavaCompile) {
 test {
   //  systemProperty "chromeoptions.prefs", "init.accept_languages=ru"
     useJUnitPlatform()
+}
+
+task simple_test(type: Test){
+    useJUnitPlatform{
+        includeTags("simple")
+    }
 }
