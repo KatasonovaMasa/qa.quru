@@ -3,6 +3,7 @@ package tests.DZ_other;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.testng.annotations.AfterTest;
@@ -21,6 +22,7 @@ public class LoginTest extends TestBase {
     @DisplayName("Успешная авторизация")
     @Feature("Форма регистарции")
     @Story("Авторизация на сайте")
+    @Disabled("Тот же тест")
     void successfulLoginTest(){
         open("https://qa.guru/cms/system/login");
         $("[name=email]").setValue("qagurubot@gmail.com");
