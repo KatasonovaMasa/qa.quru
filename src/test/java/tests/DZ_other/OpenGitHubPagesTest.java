@@ -10,6 +10,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import tests.form.TestBase;
 
 import java.util.stream.Stream;
 
@@ -18,7 +19,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 
-public class OpenGitHubPagesTest {
+public class OpenGitHubPagesTest extends TestBase {
     @BeforeEach
     void setup() {
         Selenide.open("https://github.com/");

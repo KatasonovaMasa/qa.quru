@@ -10,10 +10,11 @@ import org.junit.jupiter.api.Test;
 import org.testng.annotations.AfterTest;
 import pages.RegistrationPage;
 import pages.components.RegistrationResultsModal;
+import tests.form.TestBase;
 
 import java.io.File;
 
-public class RegistrationPageObjectTest {
+public class RegistrationPageObjectTest extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
     RegistrationResultsModal registrationResultsModal = new RegistrationResultsModal();
 

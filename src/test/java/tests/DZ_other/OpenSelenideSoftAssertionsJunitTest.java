@@ -3,11 +3,12 @@ package tests.DZ_other;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import tests.form.TestBase;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
-public class OpenSelenideSoftAssertionsJunitTest {
+public class OpenSelenideSoftAssertionsJunitTest extends TestBase {
         @BeforeAll
         static void beforeAll(){
         Configuration.browserSize = "1920x1080";
