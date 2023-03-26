@@ -1,48 +1,31 @@
-package tests.form;
+package pages.steps;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import com.github.javafaker.Faker;
 import generators.StudentDataGenerator;
-import io.qameta.allure.*;
+import io.qameta.allure.Attachment;
+import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import model.StudentData;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import pages.RegistrationPage;
-import pages.steps.RegistrationStudentSteps;
 
+import static com.codeborne.selenide.Selectors.withText;
+import static com.codeborne.selenide.Selenide.$;
+import static org.openqa.selenium.By.linkText;
 
-@Tag("demoqa")
-public class RegistrationPageObjectFakerTest extends TestBase{
+public class RegistrationStudentSteps {
     RegistrationPage registrationPage = new RegistrationPage();
-    RegistrationStudentSteps registrationStudentSteps = new RegistrationStudentSteps();
+    StudentData newStudentData = StudentDataGenerator.getRandomStudent();
+    Faker faker = new Faker();
 
-
-    @Test
-    @Feature("Форма регистарции студентов")
-    @Story("Проверки регистрации")
-    @Owner("Катасонова Мария")
-    @Severity(SeverityLevel.BLOCKER)
-    @DisplayName("Проверка Issue с помощью Steps")
-    public void testIssueSearchSteps () {
+    @Step("Заполнение полей формы регистрации")
+    public void fillingOutTheForm(){
         SelenideLogger.addListener("allure", new AllureSelenide());
-        registrationStudentSteps.fillingOutTheForm();//заполняем форму регистрации
-        registrationStudentSteps.successfulLogin();//проверка удачной регистрации
-    }
-
-
-    @Disabled
-    @Test
-    @DisplayName("Registration new student")
-    @Feature("Сайт gemoga")
-    @Story("Регистрация на сайте нового студента")
-    @Owner("Катасонова Мария")
-    public void successfulLoginTest() {
-        StudentData newStudentData = StudentDataGenerator.getRandomStudent();
-        SelenideLogger.addListener("allure", new AllureSelenide());
-        //Заполнение формы
-        registrationPage.openPage()
+                registrationPage.openPage()
                 .setFirstName(newStudentData.getFirstName())
                 .setLastName(newStudentData.getLastName())
                 .setEmail(newStudentData.getEmail())
@@ -58,7 +41,11 @@ public class RegistrationPageObjectFakerTest extends TestBase{
                 .setState(newStudentData.getState())
                 .setCity(newStudentData.getCity())
                 .submitStudentForm();
-        //Проверка формы
+        registrationPage.takeScreenshot();
+    }
+    @Step("Проверка регистрации")
+    public void successfulLogin(){
+        SelenideLogger.addListener("allure", new AllureSelenide());
         registrationPage.verifyModalAppears()
                 .isResultFormElementPresent("Student Name", newStudentData.getFirstName() + " " + newStudentData.getLastName())
                 .isResultFormElementPresent("Student Email", newStudentData.getEmail())
@@ -71,6 +58,7 @@ public class RegistrationPageObjectFakerTest extends TestBase{
                 .isResultFormElementPresent("Address", newStudentData.getCurrAddress())
                 .isResultFormElementPresent("State and City", newStudentData.getState() + " " + newStudentData.getCity())
                 .closeTable();
-                registrationPage.takeScreenshot();
+        registrationPage.takeScreenshot();
     }
+
 }
