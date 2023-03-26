@@ -1,8 +1,13 @@
 package tests.form;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.javafaker.Faker;
 import generators.StudentDataGenerator;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
+import io.qameta.allure.selenide.AllureSelenide;
 import model.StudentData;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -15,6 +20,8 @@ import pages.RegistrationPage;
 public class RegistrationPageObjectFakerTest extends TestBase{
     Faker faker = new Faker();
     RegistrationPage registrationPage = new RegistrationPage();
+
+
  
 //    @BeforeAll
 //    static void beforeAll() {
@@ -23,8 +30,12 @@ public class RegistrationPageObjectFakerTest extends TestBase{
 //    }
     @Test
     @DisplayName("Registration new student")
-    void successfulLoginTest() {
+    @Feature("Сайт gemoga")
+    @Story("Регистрация на сайте нового студента")
+    @Owner("Катасонова Мария")
+    public void successfulLoginTest() {
         StudentData newStudentData = StudentDataGenerator.getRandomStudent();
+        SelenideLogger.addListener("allure", new AllureSelenide());
 
         registrationPage.openPage()
                 .setFirstName(newStudentData.getFirstName())
@@ -56,5 +67,6 @@ public class RegistrationPageObjectFakerTest extends TestBase{
                 .isResultFormElementPresent("Address", newStudentData.getCurrAddress())
                 .isResultFormElementPresent("State and City", newStudentData.getState() + " " + newStudentData.getCity())
                 .closeTable();
+                registrationPage.takeScreenshot();
     }
 }
