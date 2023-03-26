@@ -9,13 +9,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.GithubPage;
 import steps.IssueSteps;
+import tests.form.TestBase;
 
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 import static org.openqa.selenium.By.linkText;
 
-public class IssueTest {
+public class IssueTest extends TestBase {
 
     @JacksonInject
     IssueSteps issueSteps = new IssueSteps();
