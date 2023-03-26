@@ -72,6 +72,6 @@ test {
 
 task master_test(type: Test){
     useJUnitPlatform{
-        includeTags("demoqa")
+        includeTags("demoqa")//должно совпадать с названием @Tag в классе тестов
     }
 }

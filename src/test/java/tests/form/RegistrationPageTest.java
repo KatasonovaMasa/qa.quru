@@ -18,23 +18,21 @@ public class RegistrationPageTest extends TestBase{
     RegistrationPage registrationPage = new RegistrationPage();
     RegistrationStudentSteps registrationStudentSteps = new RegistrationStudentSteps();
 
-
     @Test
     @Feature("Форма регистарции студентов")
-    @Story("Проверки регистрации")
+    @Story("Регистрация на сайте нового студента по steps")
     @Owner("Катасонова Мария")
-    @DisplayName("Проверка Issue с помощью Steps")
+    @DisplayName("Проверка регистрации нового студента")
     public void registrationFormTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         registrationStudentSteps.fillingOutTheForm();//заполняем форму регистрации
         registrationStudentSteps.successfulLogin();//проверка удачной регистрации
     }
 
-
     @Disabled
     @Test
-    @DisplayName("Registration new student")
-    @Feature("Сайт gemoga")
+    @DisplayName("Проверка регистрации нового студента")
+    @Feature("Форма регистарции студентов")
     @Story("Регистрация на сайте нового студента")
     @Owner("Катасонова Мария")
     public void successfulLoginTest() {
