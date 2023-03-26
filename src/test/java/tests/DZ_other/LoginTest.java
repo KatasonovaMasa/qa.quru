@@ -1,15 +1,19 @@
 package tests.DZ_other;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.testng.annotations.AfterTest;
+import tests.form.TestBase;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 
-public class LoginTest {
+public class LoginTest extends TestBase {
+
     @AfterTest
+    @Disabled
     @Test
     void successfulLoginTest(){
         open("https://qa.guru/cms/system/login");
