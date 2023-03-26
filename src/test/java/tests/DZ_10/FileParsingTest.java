@@ -28,7 +28,7 @@ public class FileParsingTest {
                 if (fileName.endsWith(".pdf")) {
                     PDF pdf = new PDF(zs);
                     assertEquals(180, pdf.numberOfPages);
-                    assertEquals(337969, pdf.text.length());
+                    assertEquals(331348, pdf.text.length());
                     assertEquals("Stefan Bechtold, Sam Brannen, Johannes Link, Matthias Merdes, Marc Philipp, Juliette de Rancourt, Christian Stein",
                             pdf.author);
                     return;

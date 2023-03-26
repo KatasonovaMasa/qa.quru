@@ -59,7 +59,6 @@ public class OpenHabr {
         $$("li.serp-item").first().shouldHave(Condition.text(expectedText));
     }
 
-    @Disabled
     @Test
     void photoSearchTest() {
         $(".search3__icon-camera svg").click();
