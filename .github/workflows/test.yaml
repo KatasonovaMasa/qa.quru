@@ -10,13 +10,13 @@ jobs:
     steps:
       # выкачиваем репозиторий
       - uses: actions/checkout@v3
-      - name: Set up JDK 11
+#      - name: Set up JDK 11
       # настраиваем java
       - uses: actions/setup-java@v3
         with:
           distribution: 'zulu'
           java-version: '11'
-      - name: Build with Gradle
+#      - name: Build with Gradle
 
       - uses: Xotabu4/selenoid-github-action@v2
       # запускаем тесты
