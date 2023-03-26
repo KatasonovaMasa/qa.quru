@@ -2,8 +2,9 @@ package tests.form;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import generators.StudentDataGenerator;
-import help.Attach;
-import io.qameta.allure.*;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
 import io.qameta.allure.selenide.AllureSelenide;
 import model.StudentData;
 import org.junit.jupiter.api.Disabled;
@@ -28,7 +29,7 @@ public class RegistrationPageTest extends TestBase{
         SelenideLogger.addListener("allure", new AllureSelenide());
         registrationStudentSteps.fillingOutTheForm();//заполняем форму регистрации
         registrationStudentSteps.successfulLogin();//проверка удачной регистрации
-        Attach.addVideo();
+     //   Attach.addVideo();
     }
 
 
