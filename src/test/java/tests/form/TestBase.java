@@ -17,7 +17,7 @@ public class TestBase {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1900x1080";
         Configuration.browser = "chrome";
-        Configuration.browserVersion = "100";//нельзя ставить версию больше чем на selenoid
+        Configuration.browserVersion = "100.0";//нельзя ставить версию больше чем на selenoid
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub"; //запускает автотесты не локально а через selenoid
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
