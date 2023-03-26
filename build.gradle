@@ -72,6 +72,6 @@ test {
 
 task master_test(type: Test){
     useJUnitPlatform{
-        includeTags("master")
+        includeTags("demoqa")
     }
 }

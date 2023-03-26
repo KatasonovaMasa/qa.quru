@@ -14,7 +14,7 @@ import pages.steps.RegistrationStudentSteps;
 
 
 @Tag("demoqa")
-public class RegistrationPageObjectFakerTest extends TestBase{
+public class RegistrationPageTest extends TestBase{
     RegistrationPage registrationPage = new RegistrationPage();
     RegistrationStudentSteps registrationStudentSteps = new RegistrationStudentSteps();
 
@@ -23,9 +23,8 @@ public class RegistrationPageObjectFakerTest extends TestBase{
     @Feature("Форма регистарции студентов")
     @Story("Проверки регистрации")
     @Owner("Катасонова Мария")
-    @Severity(SeverityLevel.BLOCKER)
     @DisplayName("Проверка Issue с помощью Steps")
-    public void testIssueSearchSteps () {
+    public void registrationFormTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         registrationStudentSteps.fillingOutTheForm();//заполняем форму регистрации
         registrationStudentSteps.successfulLogin();//проверка удачной регистрации
