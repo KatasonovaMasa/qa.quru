@@ -1,48 +1,22 @@
-package tests.form;
+package steps;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
+import com.github.javafaker.Faker;
 import generators.StudentDataGenerator;
-import io.qameta.allure.Feature;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Story;
+import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import model.StudentData;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
-import pages.steps.RegistrationStudentSteps;
 
-
-@Tag("demoqa")
-public class RegistrationPageTest extends TestBase{
+public class RegistrationStudentSteps {
     RegistrationPage registrationPage = new RegistrationPage();
-    RegistrationStudentSteps registrationStudentSteps = new RegistrationStudentSteps();
+    StudentData newStudentData = StudentDataGenerator.getRandomStudent();
+    Faker faker = new Faker();
 
-    @Test
-    @Feature("Форма регистарции студентов")
-    @Story("Регистрация на сайте нового студента по steps")
-    @Owner("Катасонова Мария")
-    @DisplayName("Проверка регистрации нового студента")
-    public void registrationFormTest() {
+    @Step("Заполнение полей формы регистрации")
+    public void fillingOutTheForm(){
         SelenideLogger.addListener("allure", new AllureSelenide());
-        registrationStudentSteps.fillingOutTheForm();//заполняем форму регистрации
-        registrationStudentSteps.successfulLogin();//проверка удачной регистрации
-}
-
-
-    @Disabled
-    @Test
-    @DisplayName("Проверка регистрации нового студента")
-    @Feature("Форма регистарции студентов")
-    @Story("Регистрация на сайте нового студента")
-    @Owner("Катасонова Мария")
-    public void successfulLoginTest() {
-        StudentData newStudentData = StudentDataGenerator.getRandomStudent();
-        SelenideLogger.addListener("allure", new AllureSelenide());
-        //Заполнение формы
-        registrationPage.openPage()
+                registrationPage.openPage()
                 .setFirstName(newStudentData.getFirstName())
                 .setLastName(newStudentData.getLastName())
                 .setEmail(newStudentData.getEmail())
@@ -58,7 +32,11 @@ public class RegistrationPageTest extends TestBase{
                 .setState(newStudentData.getState())
                 .setCity(newStudentData.getCity())
                 .submitStudentForm();
-        //Проверка формы
+        registrationPage.takeScreenshot();
+    }
+    @Step("Проверка регистрации")
+    public void successfulLogin(){
+        SelenideLogger.addListener("allure", new AllureSelenide());
         registrationPage.verifyModalAppears()
                 .isResultFormElementPresent("Student Name", newStudentData.getFirstName() + " " + newStudentData.getLastName())
                 .isResultFormElementPresent("Student Email", newStudentData.getEmail())
@@ -71,6 +49,7 @@ public class RegistrationPageTest extends TestBase{
                 .isResultFormElementPresent("Address", newStudentData.getCurrAddress())
                 .isResultFormElementPresent("State and City", newStudentData.getState() + " " + newStudentData.getCity())
                 .closeTable();
-                registrationPage.takeScreenshot();
+        registrationPage.takeScreenshot();
     }
+
 }
