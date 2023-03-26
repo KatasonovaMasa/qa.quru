@@ -4,7 +4,6 @@ import com.codeborne.pdftest.PDF;
 import com.codeborne.xlstest.XLS;
 import com.opencsv.CSVReader;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;
@@ -18,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 public class FileParsingTest {
     private final ClassLoader cl = FileParsingTest.class.getClassLoader();
-    @Disabled
+
     @Test
     void zipPdfTest() throws Exception {
         try (InputStream is2 = cl.getResourceAsStream("filetest/test.zip");
