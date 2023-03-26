@@ -12,7 +12,7 @@ public class RegistrationPageObjectTest {
     RegistrationPage registrationPage = new RegistrationPage();
     RegistrationResultsModal registrationResultsModal = new RegistrationResultsModal();
 
-    File photo = new File("src/test/resources/QA.gif");
+    File photo = new File("src/test/resources/pictures/QA.gif");
     @BeforeAll
     static void beforeAll(){
         Configuration.browserSize = "1920x1080";
