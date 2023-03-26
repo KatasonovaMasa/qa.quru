@@ -1,8 +1,13 @@
 package tests.DZ_other;
 
 import com.codeborne.selenide.Configuration;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.testng.annotations.AfterTest;
 import pages.RegistrationPage;
 import pages.components.RegistrationResultsModal;
 
@@ -19,11 +24,15 @@ public class RegistrationPageObjectTest {
         Configuration.baseUrl = "https://demoqa.com";
     }
     @Test
+    @AfterTest
+    @Owner("Катасонова Мария")
+    @DisplayName("Регистрация")
+    @Feature("Форма регистарции")
+    @Story("Регистрация на сайте")
     void successfulLoginTest(){
         String day = "8",
                month = "January",
                year = "1989";
-
 
         registrationPage.openPage()
                 .setFirstName("Мария")
