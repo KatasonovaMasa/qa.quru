@@ -8,16 +8,25 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.util.Map;
+
 public class TestBase {
     @BeforeAll
     static void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1900x1080";
+        Configuration.browser = "chrome";
+        Configuration.browserVersion = "111.0.5563.111";
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub"; //запускает автотесты не локально а через selenoid
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", true);
+        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
+                "enaenableVNC", true,
+                "enableVideo", true
+        ));
+//        capabilities.setCapability("enableVNC", true);
+//        capabilities.setCapability("enableVideo", true);
         Configuration.browserCapabilities = capabilities;
     }
 
