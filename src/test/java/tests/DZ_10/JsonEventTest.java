@@ -17,7 +17,7 @@ public class JsonEventTest {
 
     @Test
     void testJsonParsing() throws IOException {
-        try (InputStream inputStream = cl.getResourceAsStream("testEvent.json")) {
+        try (InputStream inputStream = cl.getResourceAsStream("filetest/testEvent.json")) {
             ModelEvent modelEvent = objectMapper.readValue(inputStream, ModelEvent.class);
 
             assertEquals("1.0", modelEvent.getApiVersion());
