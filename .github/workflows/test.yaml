@@ -20,7 +20,7 @@ jobs:
       - run: chmod +x ./gradlew
       # запускаем тесты
       - run: ./gradlew clean test -Dselenide.remote=http://localhost:4444/wd/hub
-      - name: Change wrapper permissions
+#      - name: Change wrapper permissions
       # скачиваем историю тестов
       - uses: actions/checkout@v2
         if: always()
