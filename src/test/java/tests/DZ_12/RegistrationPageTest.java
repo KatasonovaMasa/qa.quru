@@ -7,7 +7,6 @@ import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
 import io.qameta.allure.selenide.AllureSelenide;
 import model.StudentData;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -32,8 +31,6 @@ public class RegistrationPageTest extends TestBase {
         registrationStudentSteps.successfulLogin();//проверка удачной регистрации
 }
 
-
-    @Disabled
     @Test
     @DisplayName("Проверка регистрации нового студента")
     @Feature("Форма регистарции студентов")

@@ -1,6 +1,5 @@
 package tests.DZ_other;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -18,7 +17,6 @@ public class LoginTest {
         $(".main-header__login").click();
         $(".logined-form").shouldHave(text("Мария"));
     }
-    @Disabled
     @Test
     void successfulLoginWithCommentsTest(){
 
