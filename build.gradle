@@ -59,6 +59,7 @@ dependencies {
 }
 dependencies {
     implementation 'com.github.javafaker:javafaker:1.0.2'
+    testImplementation 'org.testng:testng:7.1.0'
 }
 
 tasks.withType(JavaCompile) {
