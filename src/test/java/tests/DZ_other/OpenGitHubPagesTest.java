@@ -1,9 +1,11 @@
 package tests.DZ_other;
 
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -17,10 +19,6 @@ import static com.codeborne.selenide.Selenide.$$;
 
 
 public class OpenGitHubPagesTest {
-    @BeforeAll
-    static void beforeAll(){
-        Configuration.browserSize = "1920x1080";
-    }
     @BeforeEach
     void setup() {
         Selenide.open("https://github.com/");
