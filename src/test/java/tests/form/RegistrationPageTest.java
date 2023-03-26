@@ -29,8 +29,7 @@ public class RegistrationPageTest extends TestBase{
         SelenideLogger.addListener("allure", new AllureSelenide());
         registrationStudentSteps.fillingOutTheForm();//заполняем форму регистрации
         registrationStudentSteps.successfulLogin();//проверка удачной регистрации
-     //   Attach.addVideo();
-    }
+}
 
 
     @Disabled
