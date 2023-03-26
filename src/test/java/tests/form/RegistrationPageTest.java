@@ -31,6 +31,7 @@ public class RegistrationPageTest extends TestBase{
         Attach.addVideo();
     }
 
+
     @Disabled
     @Test
     @DisplayName("Проверка регистрации нового студента")
