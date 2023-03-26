@@ -1,0 +1,42 @@
+name: Test
+
+on: workflow_dispatch
+
+jobs:
+  test:
+    # где заускаем
+    runs-on: ubuntu-latest
+    # что делаем
+    steps:
+      # выкачиваем репозиторий
+      - uses: actions/checkout@v3
+      # настраиваем java
+      - uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '8'
+      - uses: Xotabu4/selenoid-github-action@v2
+      # запускаем тесты
+      - run: ./gradlew clean test -Dselenide.remote=http://localhost:4444/wd/hub
+      # скачиваем историю тестов
+      - uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+      # генерируем отчет
+      - uses: simple-elf/allure-report-action@master
+        if: always()
+        with:
+          gh_pages: gh-pages
+          allure_results: build/allure-results
+          allure_report: allure-report
+          allure_history: allure-history
+      # публикуем отчет
+      - uses: peaceiris/actions-gh-pages@v2
+        if: always()
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-history
