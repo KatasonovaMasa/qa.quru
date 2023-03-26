@@ -2,8 +2,10 @@ package tests.DZ_other;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -24,8 +26,11 @@ public class OpenSolutionsAndDragAndDropTest {
         $(".enterprise-hero").shouldHave(text("Build like the best"));
     }
 
-    @Disabled("Я не понимаю почему не работает")
+ //   @Disabled("Я не понимаю почему не работает")
     @Test
+    @Disabled
+    @Owner("Катасонова Мария")
+    @DisplayName("Не работает медот Action.Selenide")
     void dragAndDropTestActions() {
         open("https://the-internet.herokuapp.com/drag_and_drop");
         SelenideElement a = $("#column-a");

@@ -1,5 +1,6 @@
 package tests.DZ_other;
 
+import io.qameta.allure.Owner;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.testng.annotations.AfterTest;
@@ -25,6 +26,7 @@ public class LoginTest extends TestBase {
     }
     @AfterTest
     @Test
+    @Owner("Катасонова Мария")
     void successfulLoginWithCommentsTest(){
         //        Открыть форму авторизации
 //        https://qa.guru/cms/system/login
