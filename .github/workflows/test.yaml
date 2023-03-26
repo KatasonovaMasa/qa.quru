@@ -17,9 +17,10 @@ jobs:
           distribution: 'zulu'
           java-version: '11'
       - name: Build with Gradle
-      - run: chmod +x ./gradlew
+
       - uses: Xotabu4/selenoid-github-action@v2
       # запускаем тесты
+      - run: chmod +x ./gradlew
       - run: ./gradlew clean test -Dselenide.remote=http://localhost:4444/wd/hub
 
       # скачиваем историю тестов
