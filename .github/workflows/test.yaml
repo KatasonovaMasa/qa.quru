@@ -15,8 +15,6 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '11'
-#      - name: Build with Gradle
-
       - uses: Xotabu4/selenoid-github-action@v2
       # запускаем тесты
       - run: chmod +x ./gradlew
