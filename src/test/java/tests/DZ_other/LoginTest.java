@@ -1,7 +1,9 @@
 package tests.DZ_other;
 
+import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
-import org.junit.jupiter.api.Disabled;
+import io.qameta.allure.Story;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.testng.annotations.AfterTest;
 import tests.form.TestBase;
@@ -14,8 +16,11 @@ import static com.codeborne.selenide.Selenide.open;
 public class LoginTest extends TestBase {
 
     @AfterTest
-    @Disabled
     @Test
+    @Owner("Катасонова Мария")
+    @DisplayName("Успешная авторизация")
+    @Feature("Форма регистарции")
+    @Story("Авторизация на сайте")
     void successfulLoginTest(){
         open("https://qa.guru/cms/system/login");
         $("[name=email]").setValue("qagurubot@gmail.com");
@@ -27,15 +32,10 @@ public class LoginTest extends TestBase {
     @AfterTest
     @Test
     @Owner("Катасонова Мария")
+    @DisplayName("Успешная авторизация с комментариями")
+    @Feature("Форма регистарции")
+    @Story("Авторизация на сайте")
     void successfulLoginWithCommentsTest(){
-        //        Открыть форму авторизации
-//        https://qa.guru/cms/system/login
-//        Ввести адрес электронной почты
-//        Ввести пароль
-//        Нажать кнопку "Войти"
-//        Нажать на кнопку "Личный кабинет"
-//        Проверить успешную авторизацию
-
 //        Открыть форму авторизации
         open("https://qa.guru/cms/system/login");
 //        Ввести адрес электронной почты
