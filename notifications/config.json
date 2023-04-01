@@ -6,7 +6,7 @@
     "reportLink": "",
     "language": "ru",
     "messenger": "telegram",
-    "allureFolder": "https://jenkins.autotests.cloud/job/444_qa_quru_dz_12/ws/allure-report/",
+    "allureFolder": "ws/allure-report/widgets/summary.json",
     "enableChart": true
   },
   "telegram": {
