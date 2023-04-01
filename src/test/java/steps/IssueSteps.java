@@ -39,4 +39,5 @@ public class IssueSteps {
     public byte[] takeScreenshot() {
         return ((TakesScreenshot) WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.BYTES);
     }
-}
+
+   }

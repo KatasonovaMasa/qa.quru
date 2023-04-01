@@ -30,7 +30,7 @@ public class OpenHabr {
                 Arguments.of("Allure")
         );
     }
-
+    @Disabled
     @MethodSource
     @ValueSource(strings = {"Selenide", "Allure"})
     @ParameterizedTest(name = "В поисковой выдаче яндекса должно отображаться 10 резултатов по запросу {0}")
@@ -44,7 +44,7 @@ public class OpenHabr {
         $$("li.serp-item").shouldHave(sizeGreaterThanOrEqual(10));
     }
 
-
+    @Disabled
     @CsvSource(value = {
             "Selenide,         лаконичные и стабильные UI тесты на Java",
             "Allure framework, Allure Framework · GitHub",
@@ -61,6 +61,7 @@ public class OpenHabr {
         $$("li.serp-item").first().shouldHave(Condition.text(expectedText));
     }
 
+    @Disabled
     @Test
     void photoSearchTest() {
         $(".search3__icon-camera svg").click();

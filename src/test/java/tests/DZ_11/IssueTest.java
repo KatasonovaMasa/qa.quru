@@ -38,7 +38,7 @@ public class IssueTest extends TestBase {
         $("#issues-tab").click();//        Открываем таб Issues
         $(withText("#"+ISSUE)).shouldHave(Condition.exist);//        Проверяем наличие Issue с номером #4
         issueSteps.takeScreenshot();//      Делаем скриншот
-    }
+         }
 
     @Test
     @Feature("Issue в репозитории")

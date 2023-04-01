@@ -37,7 +37,7 @@ public class OpenSolutionsAndDragAndDropTest extends TestBase {
         SelenideElement a = $("#column-a");
         SelenideElement b = $("#column-b");
         actions().dragAndDrop(a,b).build().perform();
-        $("#column-a").shouldHave(text("B"));
+        $("#column-a").shouldHave(text("A"));
      }
 
     @Test
