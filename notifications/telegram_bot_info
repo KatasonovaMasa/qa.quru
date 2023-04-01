@@ -19,3 +19,6 @@ java "-DconfigFile=notifications/config.json" -jar notifications/allure-notifica
 Slack
 channel: #qa_guru_17
 bot token: xoxb-1687076169986-4740795293235-tKVUiaaj6EBeSJuZfqcrXXal
+
+
+ Unable to find config file by
