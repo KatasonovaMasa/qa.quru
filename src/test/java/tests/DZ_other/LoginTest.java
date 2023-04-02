@@ -25,6 +25,7 @@ public class LoginTest extends TestBase {
     @Story("Авторизация на сайте")
     @Disabled("Тот же тест")
     void successfulLoginTest(){
+        System.setProperty("browser","opera");
         open("https://qa.guru/cms/system/login");
         $("[name=email]").setValue("qagurubot@gmail.com");
         $("[name=password]").setValue("qagurupassword");
