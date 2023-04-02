@@ -6,6 +6,7 @@ import io.qameta.allure.*;
 import io.qameta.allure.internal.shadowed.jackson.annotation.JacksonInject;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.GithubPage;
 import steps.IssueSteps;
@@ -15,7 +16,7 @@ import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 import static org.openqa.selenium.By.linkText;
-
+@Tag("demoqa")
 public class IssueTest extends TestBase {
 
     @JacksonInject

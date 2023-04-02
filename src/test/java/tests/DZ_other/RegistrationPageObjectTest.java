@@ -6,6 +6,7 @@ import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.testng.annotations.AfterTest;
 import pages.RegistrationPage;
@@ -13,7 +14,7 @@ import pages.components.RegistrationResultsModal;
 import tests.form.TestBase;
 
 import java.io.File;
-
+@Tag("demoqa")
 public class RegistrationPageObjectTest extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
     RegistrationResultsModal registrationResultsModal = new RegistrationResultsModal();
