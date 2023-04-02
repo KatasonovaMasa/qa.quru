@@ -79,6 +79,7 @@ test {
 //}
 
 task master_test(type: Test){
+    systemProperties(System.getProperties())
     useJUnitPlatform{
         includeTags("demoqa")//должно совпадать с названием @Tag в классе тестов
     }
