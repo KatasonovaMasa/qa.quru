@@ -2,7 +2,10 @@ package tests.DZ_other;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -30,7 +33,6 @@ public class OpenHabr {
                 Arguments.of("Allure")
         );
     }
-    @Disabled
     @MethodSource
     @ValueSource(strings = {"Selenide", "Allure"})
     @ParameterizedTest(name = "В поисковой выдаче яндекса должно отображаться 10 резултатов по запросу {0}")
@@ -44,7 +46,6 @@ public class OpenHabr {
         $$("li.serp-item").shouldHave(sizeGreaterThanOrEqual(10));
     }
 
-    @Disabled
     @CsvSource(value = {
             "Selenide,         лаконичные и стабильные UI тесты на Java",
             "Allure framework, Allure Framework · GitHub",
@@ -61,7 +62,6 @@ public class OpenHabr {
         $$("li.serp-item").first().shouldHave(Condition.text(expectedText));
     }
 
-    @Disabled
     @Test
     void photoSearchTest() {
         $(".search3__icon-camera svg").click();
