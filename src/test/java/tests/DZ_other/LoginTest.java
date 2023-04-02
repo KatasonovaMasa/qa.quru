@@ -23,7 +23,8 @@ public class LoginTest extends TestBase {
     @Story("Авторизация на сайте")
     @Disabled("Тот же тест")
     void successfulLoginTest(){
-        open("https://qa.guru/cms/system/login");
+     //   open("https://qa.guru/cms/system/login");
+        open("/cms/system/login");
         $("[name=email]").setValue("qagurubot@gmail.com");
         $("[name=password]").setValue("qagurupassword");
         $(".btn-success").click();
@@ -37,7 +38,8 @@ public class LoginTest extends TestBase {
     @Story("Авторизация на сайте")
     void successfulLoginWithCommentsTest(){
 //        Открыть форму авторизации
-        open("https://qa.guru/cms/system/login");
+      //  open("https://qa.guru/cms/system/login");
+        open("/cms/system/login");
 //        Ввести адрес электронной почты
         $("[name=email]").setValue("qagurubot@gmail.com");
 //        Ввести пароль
