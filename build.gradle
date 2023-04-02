@@ -68,18 +68,16 @@ tasks.withType(JavaCompile) {
 }
 
 test {
-    systemProperties(System.getProperties())
   //  systemProperty "chromeoptions.prefs", "init.accept_languages=ru"
     useJUnitPlatform()
 }
 
-//tasks.withType(Test) {
-//    systemProperties(System.getProperties())
-//    useJUnitPlatform()
-//}
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+    useJUnitPlatform()
+}
 
 task master_test(type: Test){
-    systemProperties(System.getProperties())
     useJUnitPlatform{
         includeTags("demoqa")//должно совпадать с названием @Tag в классе тестов
     }
