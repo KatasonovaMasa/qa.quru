@@ -8,7 +8,7 @@ import tests.form.TestBase;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
-@Tag("demoqa")
+@Tag("github")
 public class OpenSelenideSoftAssertionsJunitTest extends TestBase {
         @BeforeAll
         static void beforeAll(){

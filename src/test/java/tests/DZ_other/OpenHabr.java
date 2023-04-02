@@ -16,7 +16,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 @Disabled
-@Tag("demoqa")
+@Tag("habr")
 public class OpenHabr {
 
     @BeforeEach

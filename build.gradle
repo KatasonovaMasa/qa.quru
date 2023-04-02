@@ -67,18 +67,34 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
-test {
-  //  systemProperty "chromeoptions.prefs", "init.accept_languages=ru"
-    useJUnitPlatform()
-}
+
 
 tasks.withType(Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform()
 }
+test {
+    //  systemProperty "chromeoptions.prefs", "init.accept_languages=ru"
+    useJUnitPlatform()
+}
 
-task master_test(type: Test){
+task master_demoqa_test(type: Test){
     useJUnitPlatform{
         includeTags("demoqa")//должно совпадать с названием @Tag в классе тестов
     }
+task master_github_test(type: Test){
+    useJUnitPlatform{
+        includeTags("github")//должно совпадать с названием @Tag в классе тестов
+    }
+}
+task master_habr_test(type: Test){
+    useJUnitPlatform{
+       includeTags("habr")//должно совпадать с названием @Tag в классе тестов
+   }
+}
+task master_qa_quru_test(type: Test){
+    useJUnitPlatform{
+        includeTags("qa_quru")//должно совпадать с названием @Tag в классе тестов
+    }
+}
 }

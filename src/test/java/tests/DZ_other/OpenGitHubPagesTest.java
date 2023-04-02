@@ -18,7 +18,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-@Tag("demoqa")
+@Tag("github")
 public class OpenGitHubPagesTest extends TestBase {
     @BeforeEach
     void setup() {

@@ -16,7 +16,7 @@ import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 import static org.openqa.selenium.By.linkText;
-@Tag("demoqa")
+@Tag("github")
 public class IssueTest extends TestBase {
 
     @JacksonInject

@@ -1,7 +1,6 @@
 package tests.DZ_10;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -11,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-@Tag("demoqa")
+
 public class JsonEventTest {
     private ClassLoader cl = JsonEventTest.class.getClassLoader();
     private ObjectMapper objectMapper = new ObjectMapper();
