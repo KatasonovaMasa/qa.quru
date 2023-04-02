@@ -16,7 +16,7 @@ public class TestBase {
     static void setUp() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         Configuration.remote = "https://user1:1234@" + System.getProperty("selenoid_url", "selenoid.autotests.cloud/wd/hub"); //запускает автотесты не локально а через selenoid
-        Configuration.baseUrl = System.getProperty("baseurl");
+        Configuration.baseUrl = System.getProperty("baseurl", "https://demoqa.com");
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("browser_version", "100.0");//нельзя ставить версию больше чем на selenoid
         Configuration.browserSize = System.getProperty("browser_size", "1920x1080");
