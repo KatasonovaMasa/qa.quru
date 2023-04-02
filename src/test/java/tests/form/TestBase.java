@@ -21,6 +21,7 @@ public class TestBase {
         Configuration.browserVersion = System.getProperty("browser_version", "100.0");//нельзя ставить версию больше чем на selenoid
         Configuration.browserSize = System.getProperty("browser_size", "1920x1080");
 
+
         //конфиг что бы добавилось enableVNC - это мы включаем что бы было окошко в окошке в Selenoid
         //, enableVideo - вкл.запись видео происходит + ниже есть настройка Attach.addVideo(); // ЗАПИСЬ ВИДЕО
         DesiredCapabilities capabilities = new DesiredCapabilities();
