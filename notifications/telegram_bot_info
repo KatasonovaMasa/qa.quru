@@ -10,7 +10,7 @@ curl https://api.telegram.org/bot6248799311:AAH7ANsXgnKiQAhWuX4--mfRu3Ule7uQDpk/
 
 Send a message using the HTTP API:
 curl -X POST  -H 'Content-Type: application/json' -d '{"chat_id": "123456789", "text": "This is a test from curl", "disable_notification": true}' https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage
-curl -X POST  -H 'Content-Type: application/json' -d '{"chat_id": "-1001912782996", "text": "This is a test", "disable_notification": true}' https://api.telegram.org/bot6248799311:AAH7ANsXgnKiQAhWuX4--mfRu3Ule7uQDpk/sendMessage
+отправлять в гитбаше        curl -X POST  -H 'Content-Type: application/json' -d '{"chat_id": "-1001912782996", "text": "This is a test", "disable_notification": true}' https://api.telegram.org/bot6248799311:AAH7ANsXgnKiQAhWuX4--mfRu3Ule7uQDpk/sendMessage
 
 Run jar with notifications
 java "-DconfigFile=notifications/config.json" -jar notifications/allure-notifications-4.2.1.jar
