@@ -72,6 +72,10 @@ test {
     useJUnitPlatform()
 }
 
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+    useJUnitPlatform()
+}
 
 task master_test(type: Test){
     useJUnitPlatform{

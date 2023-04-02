@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.testng.annotations.AfterTest;
 import tests.form.TestBase;
 
 import static com.codeborne.selenide.Condition.text;
@@ -17,7 +16,6 @@ import static com.codeborne.selenide.Selenide.open;
 @Tag("demoqa")
 public class LoginTest extends TestBase {
 
-    @AfterTest
     @Test
     @Owner("Катасонова Мария")
     @DisplayName("Успешная авторизация")
@@ -32,7 +30,6 @@ public class LoginTest extends TestBase {
         $(".main-header__login").click();
         $(".logined-form").shouldHave(text("QA_GURU_BOT"));
     }
-    @AfterTest
     @Test
     @Owner("Катасонова Мария")
     @DisplayName("Успешная авторизация с комментариями")
@@ -52,7 +49,7 @@ public class LoginTest extends TestBase {
 //        Проверить успешную авторизацию
         $(".logined-form").shouldHave(text("QA_GURU_BOT"));
 }
-    @AfterTest
+    @Test
     public void exitTest(){
         $("button[text='Сменить пользователя']");
     }
