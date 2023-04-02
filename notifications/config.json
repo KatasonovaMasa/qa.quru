@@ -1,6 +1,6 @@
 {
   "base": {
-    "project": "some project",
+    "project": "project qa.quru",
     "environment": "qa_quru",
     "comment": "any comment here, @QA_marykat",
     "reportLink": "",
