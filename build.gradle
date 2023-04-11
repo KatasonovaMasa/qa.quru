@@ -69,7 +69,7 @@ tasks.withType(JavaCompile) {
 
 
 
-tasks.withType(Test) {
+tasks.withType(Test) {//благодаря этой строчке передаются параметры в скрипт сборки
     systemProperties(System.getProperties())
     useJUnitPlatform()
 }
@@ -82,6 +82,7 @@ task master_demoqa_test(type: Test){
     useJUnitPlatform{
         includeTags("demoqa")//должно совпадать с названием @Tag в классе тестов
     }
+}
 task master_github_test(type: Test){
     useJUnitPlatform{
         includeTags("github")//должно совпадать с названием @Tag в классе тестов
@@ -97,4 +98,4 @@ task master_qa_quru_test(type: Test){
         includeTags("qa_quru")//должно совпадать с названием @Tag в классе тестов
     }
 }
-}
+
