@@ -12,7 +12,6 @@ public class RegistrationStudentSteps {
     RegistrationPage registrationPage = new RegistrationPage();
     StudentData newStudentData = StudentDataGenerator.getRandomStudent();
     Faker faker = new Faker();
-
     @Step("Заполнение полей формы регистрации")
     public void fillingOutTheForm(){
         SelenideLogger.addListener("allure", new AllureSelenide());
