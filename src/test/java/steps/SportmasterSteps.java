@@ -18,4 +18,5 @@ public class SportmasterSteps {
     public void makeSureSportmaster(){
         browserPage.makeSureSportmaster().shouldHave(visible.because("Нужный сайт не найден"));
     }
+
 }
