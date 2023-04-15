@@ -36,6 +36,7 @@ public class LoginTest extends TestBase {
     @DisplayName("Успешная авторизация с комментариями")
     @Feature("Форма регистарции")
     @Story("Авторизация на сайте")
+    @Disabled("Тот же тест")
     void successfulLoginWithCommentsTest(){
 //        Открыть форму авторизации
       //  open("https://qa.guru/cms/system/login");
