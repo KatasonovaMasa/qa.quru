@@ -3,7 +3,7 @@
     "project": "project qa.quru",
     "environment": "qa_quru",
     "comment": "any comment here, @QA_marykat",
-    "reportLink": "",
+    "reportLink": "https://jenkins.autotests.cloud/job/qa_quru_dz_12_444/",
     "language": "ru",
     "messenger": "telegram",
     "allureFolder": "allure-report/",
