@@ -1,0 +1,1 @@
+[2023-04-17T13:21:51.974Z] [SEVERE] https://cdn.ad.plus/player/adplus.js 401:504 Uncaught TypeError: g(...).setup is not a function
