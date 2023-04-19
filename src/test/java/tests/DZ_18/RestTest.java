@@ -15,7 +15,7 @@ public class RestTest {
                 .when()
                 .get("https://reqres.in/api/users/2")
                 .then()
-                .body("support.email", is("janet.weaver@reqres.in"));
+                .body("data.email", is("janet.weaver@reqres.in"));
     }
     @Test
     void checkListUsers() {
