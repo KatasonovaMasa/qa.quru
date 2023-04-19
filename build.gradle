@@ -111,4 +111,3 @@ task master_api_reqres(type: Test){
         includeTags("api_reqres")//должно совпадать с названием @Tag в классе тестов
     }
 }
-
