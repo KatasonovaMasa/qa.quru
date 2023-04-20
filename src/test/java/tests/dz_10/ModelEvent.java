@@ -1,4 +1,4 @@
-package tests.DZ_10;
+package tests.dz_10;
 
 import java.util.Map;
 

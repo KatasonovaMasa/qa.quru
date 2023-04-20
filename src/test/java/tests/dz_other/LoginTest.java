@@ -1,4 +1,4 @@
-package tests.DZ_other;
+package tests.dz_other;
 
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;

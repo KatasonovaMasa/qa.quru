@@ -1,4 +1,4 @@
-package tests.DZ_other;
+package tests.dz_other;
 
 import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Feature;

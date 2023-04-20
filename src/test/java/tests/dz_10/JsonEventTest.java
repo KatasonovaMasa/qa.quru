@@ -1,4 +1,4 @@
-package tests.DZ_10;
+package tests.dz_10;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package tests.DZ_18;
+package tests.dz_18;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;

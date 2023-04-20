@@ -1,4 +1,4 @@
-package tests.DZ_11;
+package tests.dz_11;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.logevents.SelenideLogger;

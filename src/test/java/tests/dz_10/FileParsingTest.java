@@ -1,4 +1,4 @@
-package tests.DZ_10;
+package tests.dz_10;
 
 import com.codeborne.pdftest.PDF;
 import com.codeborne.xlstest.XLS;
