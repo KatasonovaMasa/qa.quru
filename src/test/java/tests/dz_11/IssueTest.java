@@ -1,10 +1,13 @@
 package tests.dz_11;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.*;
 import io.qameta.allure.internal.shadowed.jackson.annotation.JacksonInject;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -18,7 +21,11 @@ import static io.qameta.allure.Allure.step;
 import static org.openqa.selenium.By.linkText;
 @Tag("github")
 public class IssueTest extends TestBase {
-
+    @BeforeEach
+    void setup() {
+        Selenide.open("https://github.com/");
+        Configuration.pageLoadStrategy = "eager";
+    }
     @JacksonInject
     IssueSteps issueSteps = new IssueSteps();
     private static final int ISSUE = 4;
@@ -33,6 +40,7 @@ public class IssueTest extends TestBase {
     @DisplayName("Проверка Issue с помощью Selenide")
     public void testIssueSearchSelenide() {
         SelenideLogger.addListener("allure", new AllureSelenide());
+
         githubPage.openPage();//        Открываем главную страницу
         $("[aria-label=\"Search GitHub\"]").setValue("KatasonovaMasa/qa.quru").pressEnter();//   Ищем репозиторий KatasonovaMasa/qa.quru
         $(linkText("KatasonovaMasa/qa.quru")).click();//        Кликаем по ссылке репозитория qa.quru
