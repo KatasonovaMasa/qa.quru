@@ -16,8 +16,8 @@ import tests.form.TestBase;
 import java.util.stream.Stream;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.*;
+
 @Tag("github")
 public class OpenGitHubPagesTest extends TestBase {
     @BeforeEach
@@ -36,7 +36,10 @@ public class OpenGitHubPagesTest extends TestBase {
             @Tag("BLOCKER"),
             @Tag("WEB")
     })
+        //*[contains(@class, 'Button--link')]//*[contains(@class, 'Button-label')]
+ //   [aria-label="Search GitHub"]
     void openGitHubPagesTest(String testData, String expectedText){
+        $x("//*[contains(@class, 'Button--link')]//*[contains(@class, 'Button-label')]").click();
         $("[aria-label=\"Search GitHub\"]").setValue("selenide").pressEnter();
         $$("ul.repo-list li").first().$("a").click();
         $("#repository-container-header").shouldHave(text("selenide / selenide"));
@@ -55,6 +58,7 @@ public class OpenGitHubPagesTest extends TestBase {
             @Tag("WEB")
     })
     void openGitHubPagesTest2(String testData){
+        $x("//*[contains(@class, 'Button--link')]//*[contains(@class, 'Button-label')]").click();
         $("[aria-label=\"Search GitHub\"]").setValue("selenide").pressEnter();
         $$("ul.repo-list li").first().$("a").click();
         $("#repository-container-header").shouldHave(text("selenide / selenide"));
@@ -72,6 +76,7 @@ public class OpenGitHubPagesTest extends TestBase {
             @Tag("WEB")
     })
     void openGitHubPagesTest3(String testData) {
+        $x("//*[contains(@class, 'Button--link')]//*[contains(@class, 'Button-label')]").click();
         $("[aria-label=\"Search GitHub\"]").setValue("selenide").pressEnter();
         $$("ul.repo-list li").first().$("a").click();
         $("#repository-container-header").shouldHave(text("selenide / selenide"));
