@@ -83,4 +83,5 @@ public class IssueTest extends TestBase {
         issueSteps.visibulIssue();//        Проверяем наличие Issue с номером #4
         issueSteps.takeScreenshot();//      Делаем скриншот
     }
+
 }
