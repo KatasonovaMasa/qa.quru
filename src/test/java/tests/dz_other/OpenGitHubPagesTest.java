@@ -1,6 +1,7 @@
 package tests.dz_other;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -22,6 +23,7 @@ public class OpenGitHubPagesTest extends TestBase {
     @BeforeEach
     void setup() {
         Selenide.open("https://github.com/");
+        Configuration.pageLoadStrategy = "eager";
     }
 
     @CsvSource(value = {

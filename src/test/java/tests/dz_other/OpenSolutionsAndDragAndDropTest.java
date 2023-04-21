@@ -14,6 +14,7 @@ public class OpenSolutionsAndDragAndDropTest extends TestBase {
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
+        Configuration.pageLoadStrategy = "eager";
     }
 
     @Test
