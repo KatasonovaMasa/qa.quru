@@ -36,13 +36,11 @@ public class IssueTest extends TestBase {
     @Story("Проверки Issue")
     @Owner("Катасонова Мария")
     @Severity(SeverityLevel.BLOCKER)
-    @Link(value = "Testing guru", url = "https://github.com")
+    @Link(value = "Testing guru", url = "https://github.com/KatasonovaMasa/qa.quru")
     @DisplayName("Проверка Issue с помощью Selenide")
     public void testIssueSearchSelenide() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         githubPage.openPage();//        Открываем главную страницу
-        $("[aria-label=\"Search GitHub\"]").setValue("KatasonovaMasa/qa.quru").pressEnter();//   Ищем репозиторий KatasonovaMasa/qa.quru
-        $(linkText("KatasonovaMasa/qa.quru")).click();//        Кликаем по ссылке репозитория qa.quru
         $("#issues-tab").click();//        Открываем таб Issues
         $(withText("#"+ISSUE)).shouldHave(Condition.exist);//        Проверяем наличие Issue с номером #4
         issueSteps.takeScreenshot();//      Делаем скриншот
@@ -53,7 +51,7 @@ public class IssueTest extends TestBase {
     @Story("Проверки Issue")
     @Owner("Катасонова Мария")
     @Severity(SeverityLevel.BLOCKER)
-    @Link(value = "Testing guru", url = "https://github.com")
+    @Link(value = "Testing guru", url = "https://github.com/KatasonovaMasa/qa.quru")
     @DisplayName("Проверка Issue с помощью Lambda")
     public void testIssueSearchLambda(){
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -83,7 +81,7 @@ public class IssueTest extends TestBase {
     @Story("Проверки Issue")
     @Owner("Катасонова Мария")
     @Severity(SeverityLevel.BLOCKER)
-    @Link(value = "Testing guru", url = "https://github.com")
+    @Link(value = "Testing guru", url = "https://github.com/KatasonovaMasa/qa.quru")
     @DisplayName("Проверка Issue с помощью Steps")
     public void testIssueSearchSteps () {
         SelenideLogger.addListener("allure", new AllureSelenide());
