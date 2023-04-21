@@ -36,8 +36,6 @@ public class OpenGitHubPagesTest extends TestBase {
             @Tag("BLOCKER"),
             @Tag("WEB")
     })
-        //*[contains(@class, 'Button--link')]//*[contains(@class, 'Button-label')]
- //   [aria-label="Search GitHub"]
     void openGitHubPagesTest(String testData, String expectedText){
         $x("//*[contains(@class, 'Button--link')]//*[contains(@class, 'Button-label')]").click();
         $("[aria-label=\"Search GitHub\"]").setValue("selenide").pressEnter();
