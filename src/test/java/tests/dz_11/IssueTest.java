@@ -22,7 +22,7 @@ import static io.qameta.allure.Allure.step;
 public class IssueTest extends TestBase {
     @BeforeEach
     void setup() {
-        Selenide.open("https://github.com/");
+        Selenide.open("https://github.com/KatasonovaMasa/qa.quru");
         Configuration.pageLoadStrategy = "eager";
     }
     @JacksonInject
