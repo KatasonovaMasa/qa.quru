@@ -18,7 +18,6 @@ import tests.form.TestBase;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
-import static org.openqa.selenium.By.linkText;
 @Tag("github")
 public class IssueTest extends TestBase {
     @BeforeEach
@@ -58,12 +57,6 @@ public class IssueTest extends TestBase {
         step("Открываем главную страницу", () -> {
             githubPage.openPage();
         });
-        step("Ищем репозиторий {githubPage.searhRepo}", () -> {
-            $("[aria-label=\"Search GitHub\"]").setValue("KatasonovaMasa/qa.quru").pressEnter();
-        });
-        step("Кликаем по ссылке репозитория qa.quru", () -> {
-            $(linkText("KatasonovaMasa/qa.quru")).click();
-        });
         step("Открываем таб Issues", () -> {
             $("#issues-tab").click();
         });
@@ -87,8 +80,6 @@ public class IssueTest extends TestBase {
         SelenideLogger.addListener("allure", new AllureSelenide());
         IssueSteps issueSteps = new IssueSteps();
         issueSteps.open();//                Открываем главную страницу
-        issueSteps.searhRepo();//           Ищем репозиторий KatasonovaMasa/qa.quru
-        issueSteps.clickRepositori();//     Кликаем по ссылке репозитория qa.quru
         issueSteps.openTabIssue();//        Открываем таб Issues
         issueSteps.visibulIssue();//        Проверяем наличие Issue с номером #4
         issueSteps.takeScreenshot();//      Делаем скриншот
