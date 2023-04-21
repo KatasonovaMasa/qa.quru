@@ -79,7 +79,6 @@ public class IssueTest extends TestBase {
     public void testIssueSearchSteps () {
         SelenideLogger.addListener("allure", new AllureSelenide());
         IssueSteps issueSteps = new IssueSteps();
-        issueSteps.open();//                Открываем главную страницу
         issueSteps.openTabIssue();//        Открываем таб Issues
         issueSteps.visibulIssue();//        Проверяем наличие Issue с номером #4
         issueSteps.takeScreenshot();//      Делаем скриншот
