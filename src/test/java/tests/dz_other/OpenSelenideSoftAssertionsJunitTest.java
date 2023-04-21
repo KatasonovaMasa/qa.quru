@@ -20,7 +20,7 @@ public class OpenSelenideSoftAssertionsJunitTest extends TestBase {
         void openSelenideSoftAssertionsJunitTest(){
         //Откойте страницу Selenide в Github
         open("https://github.com/");
-        $x("//button[@aria-label='Toggle navigation']//span[@class='Button-label']\n").click();
+        $x("//button[@aria-label='Toggle navigation']//span[@class='Button-label']").click();
         $("[aria-label=\"Search GitHub\"]").setValue("selenide").pressEnter();
         $$("ul.repo-list li").first().$("a").click();
         $("#repository-container-header").shouldHave(text("selenide / selenide"));
