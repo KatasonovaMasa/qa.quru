@@ -20,6 +20,7 @@ public class OpenSolutionsAndDragAndDropTest extends TestBase {
     @Test
     void openSolutions() {
         open("https://github.com/");
+        $x("//button[@aria-label='Toggle navigation']//span[@class='Button-label']\n").click();
         $(".header-menu-wrapper").$(byText("Solutions")).hover();
         $x("//a[contains(text(),'Enterprise')]").hover().click();
         $(".enterprise-hero").shouldHave(text("Build like the best"));
