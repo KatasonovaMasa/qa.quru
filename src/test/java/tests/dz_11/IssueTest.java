@@ -40,7 +40,6 @@ public class IssueTest extends TestBase {
     @DisplayName("Проверка Issue с помощью Selenide")
     public void testIssueSearchSelenide() {
         SelenideLogger.addListener("allure", new AllureSelenide());
-
         githubPage.openPage();//        Открываем главную страницу
         $("[aria-label=\"Search GitHub\"]").setValue("KatasonovaMasa/qa.quru").pressEnter();//   Ищем репозиторий KatasonovaMasa/qa.quru
         $(linkText("KatasonovaMasa/qa.quru")).click();//        Кликаем по ссылке репозитория qa.quru
