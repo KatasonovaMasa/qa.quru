@@ -20,6 +20,7 @@ public class TestBase {
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("browser_version", "100.0");//нельзя ставить версию больше чем на selenoid
         Configuration.browserSize = System.getProperty("browser_size", "1920x1080");
+        Configuration.pageLoadStrategy = "eager";
 
 
         //конфиг что бы добавилось enableVNC - это мы включаем что бы было окошко в окошке в Selenoid
