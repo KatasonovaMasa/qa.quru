@@ -5,7 +5,7 @@ import com.github.javafaker.Faker;
 import generators.StudentDataGenerator;
 import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
-import model.StudentData;
+import models.StudentData;
 import pages.RegistrationPage;
 
 public class RegistrationStudentSteps {

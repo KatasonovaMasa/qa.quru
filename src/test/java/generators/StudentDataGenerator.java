@@ -1,7 +1,7 @@
 package generators;
 
 import com.github.javafaker.Faker;
-import model.StudentData;
+import models.StudentData;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;

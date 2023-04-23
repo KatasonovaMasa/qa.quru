@@ -17,6 +17,8 @@ public class RestTest {
                 .then()
                 .body("data.email", is("janet.weaver@reqres.in"));
     }
+
+
     @Test
     void checkListUsers() {
         given()

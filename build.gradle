@@ -2,6 +2,7 @@ plugins {
     id 'java-library'
     id 'java'
     id ('io.qameta.allure') version '2.11.2'
+    id "io.freefair.lombok" version "6.0.0-m2"
 }
 
 group 'quru.qa'
@@ -70,6 +71,7 @@ dependencies {
     implementation 'com.github.javafaker:javafaker:1.0.2'
     testImplementation 'org.testng:testng:7.1.0'
     implementation 'com.codeborne:selenide:6.12.3'
+    testImplementation 'org.projectlombok:lombok:1.18.22'
 }
 
 tasks.withType(JavaCompile) {
