@@ -59,4 +59,5 @@ public class RestTest {
                 .body("support.url", is("https://reqres.in/#support-heading"))
                 .body(matchesJsonSchemaInClasspath("schemes/status-scheme-responce.json"));
     }
+
 }

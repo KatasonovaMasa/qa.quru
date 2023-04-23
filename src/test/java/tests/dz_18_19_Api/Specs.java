@@ -18,4 +18,17 @@ public class Specs {
             .expectStatusCode(200)
 //            .expectBody(containsString("success"))
             .build();
+    public static ResponseSpecification responseDelete = new ResponseSpecBuilder()
+            .expectStatusCode(204)
+            .build();
+
+    public static ResponseSpecification responseCreate = new ResponseSpecBuilder()
+            .expectStatusCode(201)
+            .build();
+    public static ResponseSpecification responseUnsuccess = new ResponseSpecBuilder()
+            .expectStatusCode(400)
+            .build();
+    public static ResponseSpecification responseSuccessLogin = new ResponseSpecBuilder()
+            .expectStatusCode(200)
+            .build();
 }
