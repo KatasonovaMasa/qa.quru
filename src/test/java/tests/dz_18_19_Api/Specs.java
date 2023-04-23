@@ -22,13 +22,10 @@ public class Specs {
             .expectStatusCode(204)
             .build();
 
-    public static ResponseSpecification responseCreate = new ResponseSpecBuilder()
+    public static ResponseSpecification responseSuccessAdd = new ResponseSpecBuilder()
             .expectStatusCode(201)
             .build();
     public static ResponseSpecification responseUnsuccess = new ResponseSpecBuilder()
             .expectStatusCode(400)
-            .build();
-    public static ResponseSpecification responseSuccessLogin = new ResponseSpecBuilder()
-            .expectStatusCode(200)
             .build();
 }

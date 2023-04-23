@@ -103,6 +103,7 @@ public class RestApiTest {
                     .body("data.findAll{it.name =~/./}.name.flatten()",
                         hasItem("fuchsia rose"));
     }
+
     @Test
     public void deleteUserTest() {
         given()
@@ -112,6 +113,7 @@ public class RestApiTest {
                     .then()
                 .spec(responseDelete);
     }
+
     @Test
     public void createUsers() {
         String body = "{ \"name\": \"Katija\", " +
@@ -123,9 +125,25 @@ public class RestApiTest {
                     .post("/users")
                 .then()
                     .log().body()
-                    .spec(responseCreate)
+                    .spec(responseSuccessAdd)
                     .body("name", is("Katija"));
     }
+
+    @Test
+    public void updateUsers() {
+        String body = "{ \"name\": \"Masa\", " +
+                "\"job\": \"leader\" }";
+        given()
+                .spec(Specs.request)
+                .body(body)
+                .when()
+                .post("/users/2")
+                .then()
+                .log().body()
+                .spec(responseSuccessAdd)
+                .body("name", is("Masa"));
+    }
+
     @Test
     public void loginSuccess() {
         String body = "{ \"email\": \"eve.holt@reqres.in\", " +
@@ -137,9 +155,10 @@ public class RestApiTest {
                 .post("/login")
                 .then()
                 .log().body()
-                .spec(responseSuccessLogin)
+                .spec(responseSpec)
                 .body("token", is("QpwL5tke4Pnpja7X4"));
     }
+
     @Test
     public void unsuccessLogin() {
         given()
@@ -151,6 +170,7 @@ public class RestApiTest {
                 .spec(responseUnsuccess)
                 .body("error", is("Missing email or username"));
     }
+
     @Test
     public void registerUnsuccess() {
         String body = "{ \"email\": \"sydney@fife\"}";
