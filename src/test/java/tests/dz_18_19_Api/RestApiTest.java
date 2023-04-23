@@ -128,7 +128,6 @@ public class RestApiTest {
                     .spec(responseSuccessAdd)
                     .body("name", is("Katija"));
     }
-
     @Test
     public void updateUsers() {
         String body = "{ \"name\": \"Masa\", " +
