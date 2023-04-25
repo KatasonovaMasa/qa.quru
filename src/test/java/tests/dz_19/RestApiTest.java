@@ -10,10 +10,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import tests.dz_19.lombok.LombokUserData;
-import tests.dz_19.models.UserData;
-import tests.dz_19.models.UserSupport;
+import tests.dz_19.models.*;
 
 import static io.restassured.RestAssured.given;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -65,6 +65,7 @@ public class RestApiTest {
     @Owner("Катасонова Мария")
     @DisplayName("Проверка email у еще одного пользователя")
     void checkSingleEmailLombok() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
         LombokUserData data = given()
                 .filter(new AllureRestAssured())
                 .spec(Specs.request)
@@ -83,18 +84,22 @@ public class RestApiTest {
     @Owner("Катасонова Мария")
     @DisplayName("Проверка редактирования имени у пользователя")
     public void updateUsers() {
-        String body = "{ \"name\": \"Masa\", " +
-                "\"job\": \"leader\" }";
-        given()
+        SelenideLogger.addListener("allure", new AllureSelenide());
+        AvtorisationBodyPojoModel data = new AvtorisationBodyPojoModel();
+        data.setName("Masa");
+        data.setJob("QA");
+        AvtorisationResponsePojoModel response = given()
                 .filter(new AllureRestAssured())
                 .spec(Specs.request)
-                .body(body)
+                .body(data)
                 .when()
                 .post("/users/2")
                 .then()
                 .log().body()
                 .spec(responseSuccessAdd)
-                .body("name", is("Masa"));
+                .extract().as(AvtorisationResponsePojoModel.class);
+        assertThat(response.getName()).isEqualTo("Masa");
+        assertThat(response.getJob()).isEqualTo("QA");
     }
 
     @Test
@@ -103,6 +108,7 @@ public class RestApiTest {
     @Owner("Катасонова Мария")
     @DisplayName("Удаление пользователя")
     public void deleteUserTest() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
         given()
                 .filter(new AllureRestAssured())
                     .spec(Specs.request)
@@ -118,18 +124,22 @@ public class RestApiTest {
     @Owner("Катасонова Мария")
     @DisplayName("Создание пользователя")
     public void createUsers() {
-        String body = "{ \"name\": \"Katija\", " +
-                "\"job\": \"leader\" }";
-        given()
+        SelenideLogger.addListener("allure", new AllureSelenide());
+        AvtorisationBodyPojoModel data = new AvtorisationBodyPojoModel();
+        data.setName("Katija");
+        data.setJob("leader");
+        AvtorisationResponsePojoModel response = given()
                 .filter(new AllureRestAssured())
                     .spec(Specs.request)
-                    .body(body)
+                    .body(data)
                 .when()
                     .post("/users")
                 .then()
                     .log().body()
                     .spec(responseSuccessAdd)
-                    .body("name", is("Katija"));
+                .extract().as(AvtorisationResponsePojoModel.class);
+        assertThat(response.getName()).isEqualTo("Katija");
+        assertThat(response.getJob()).isEqualTo("leader");
     }
     @Test
     @Feature("Апишка для тестов REQRES")
@@ -137,6 +147,7 @@ public class RestApiTest {
     @Owner("Катасонова Мария")
     @DisplayName("Проверка что в списке пользователей есть выбранный email")
     public void checkSingleNameGroovy() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
         given()
                 .filter(new AllureRestAssured())
                 .spec(Specs.request)
@@ -153,6 +164,7 @@ public class RestApiTest {
     @Owner("Катасонова Мария")
     @DisplayName("Проверка что в списке пользователей есть выбранный email")
     public void checkSingleEmailGroovy() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
         given()
                 .filter(new AllureRestAssured())
                 .spec(Specs.request)
@@ -170,18 +182,21 @@ public class RestApiTest {
     @Owner("Катасонова Мария")
     @DisplayName("Авторизация по логину")
     public void loginSuccess() {
-        String body = "{ \"email\": \"eve.holt@reqres.in\", " +
-                "\"password\": \"cityslicka\" }";
-        given()
+        SelenideLogger.addListener("allure", new AllureSelenide());
+        LoginBodyPojoModel data = new LoginBodyPojoModel();
+        data.setEmail("eve.holt@reqres.in");
+        data.setPassword("cityslicka");
+        LoginResponsePojoModel response  = given()
                 .filter(new AllureRestAssured())
                     .spec(Specs.request)
-                    .body(body)
+                    .body(data)
                 .when()
                     .post("/login")
                 .then()
                     .log().body()
                     .spec(responseSpec)
-                    .body("token", is("QpwL5tke4Pnpja7X4"));
+                    .extract().as(LoginResponsePojoModel.class);
+        assertThat(response.getToken()).isEqualTo("QpwL5tke4Pnpja7X4");
     }
 
     @Test
@@ -190,6 +205,7 @@ public class RestApiTest {
     @Owner("Катасонова Мария")
     @DisplayName("Авторизация по логину")
     public void unsuccessLogin() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
         given()
                 .filter(new AllureRestAssured())
                     .spec(Specs.request)
@@ -207,11 +223,13 @@ public class RestApiTest {
     @Owner("Катасонова Мария")
     @DisplayName("Ошибка при авторизации")
     public void registerUnsuccess() {
-        String body = "{ \"email\": \"sydney@fife\"}";
+        SelenideLogger.addListener("allure", new AllureSelenide());
+        LoginBodyPojoModel data = new LoginBodyPojoModel();
+        data.setEmail("sydney@fife");
         given()
                 .filter(new AllureRestAssured())
                     .spec(Specs.request)
-                    .body(body)
+                    .body(data)
                 .when()
                     .post("/register")
                 .then()
