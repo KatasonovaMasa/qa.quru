@@ -41,37 +41,39 @@ compileTestJava{
     options.encoding='UTF-8'
 }
 def restAssuredVersion = "5.3.0",
-    slf4jVersion = "2.0.7"
+        allureVersion = "2.19.0",
+        slf4jVersion = "2.0.7"
 
 dependencies {
     testImplementation (
-            "org.junit.jupiter:junit-jupiter:5.9.2",
-            "io.qameta.allure:allure-junit5:2.18.1",
-            "org.junit.jupiter:junit-jupiter-api:5.6.2",
-            "io.rest-assured:rest-assured:5.1.0",
-
-            "org.slf4j:slf4j-simple:2.0.6",
             "io.rest-assured:json-schema-validator:$restAssuredVersion",
-            "org.junit.jupiter:junit-jupiter:5.9.2",
             "org.slf4j:slf4j-simple:$slf4jVersion",
-            "com.github.javafaker:javafaker:1.0.2",
+            'com.fasterxml.jackson.core:jackson-databind:2.14.2',
+            'com.fasterxml.jackson.core:jackson-core:2.14.2',
+            'io.github.bonigarcia:webdrivermanager:5.2.1',
+            'io.qameta.allure:allure-rest-assured:2.21.0',
+            'org.junit.jupiter:junit-jupiter-api:5.6.2',
+            'io.qameta.allure:allure-selenide:2.21.0',
+            'org.junit.jupiter:junit-jupiter:5.9.2',
+            'io.qameta.allure:allure-junit5:2.18.1',
+            'com.github.javafaker:javafaker:1.0.2',
+            'io.rest-assured:rest-assured:5.1.0',
+            'org.assertj:assertj-core:3.23.1',
+            'org.aeonbits.owner:owner:1.0.4',
+            'org.slf4j:slf4j-simple:2.0.6',
             'com.codeborne:pdf-test:1.5.0',
             'com.codeborne:xls-test:1.4.3',
-            'com.opencsv:opencsv:5.7.1',
-            'com.fasterxml.jackson.core:jackson-core:2.14.2',
-            'com.fasterxml.jackson.core:jackson-databind:2.14.2',
-            'io.qameta.allure:allure-selenide:2.21.0',
-            'io.github.bonigarcia:webdrivermanager:5.2.1',
-            'org.aeonbits.owner:owner:1.0.4',
-            'org.assertj:assertj-core:3.23.1'
-     )
+            'com.opencsv:opencsv:5.7.1'
+   )
 }
 
 dependencies {
-    implementation 'com.github.javafaker:javafaker:1.0.2'
-    testImplementation 'org.testng:testng:7.1.0'
-    implementation 'com.codeborne:selenide:6.12.3'
-    testImplementation 'org.projectlombok:lombok:1.18.22'
+    implementation ('io.qameta.allure:allure-rest-assured:2.21.0',
+                     'com.github.javafaker:javafaker:1.0.2',
+                     'org.projectlombok:lombok:1.18.22',
+                     'com.codeborne:selenide:6.12.3',
+                     'org.testng:testng:7.1.0'
+        )
 }
 
 tasks.withType(JavaCompile) {

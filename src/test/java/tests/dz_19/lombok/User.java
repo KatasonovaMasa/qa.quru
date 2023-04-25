@@ -1,4 +1,4 @@
-package tests.dz_18_19_Api.lombok;
+package tests.dz_19.lombok;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

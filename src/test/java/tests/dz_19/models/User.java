@@ -1,4 +1,4 @@
-package tests.dz_18_19_Api.models;
+package tests.dz_19.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
