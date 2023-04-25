@@ -1,5 +1,8 @@
 package tests.dz_19;
 
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
 import io.qameta.allure.restassured.AllureRestAssured;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -18,7 +21,10 @@ import static tests.dz_18_19_Api.Specs.*;
 public class RestApiTest {
 
     @Test
-    @DisplayName("Xbnftncz&")
+    @Feature("Форма регистарции студентов")
+    @Story("Регистрация на сайте нового студента по steps")
+    @Owner("Катасонова Мария")
+    @DisplayName("Проверка регистрации нового студента")
     void checkSingleEmail() {
         UserData data = given()
                 .filter(new AllureRestAssured())
