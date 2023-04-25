@@ -30,7 +30,6 @@ public class RestApiTest {
         assertEquals("janet.weaver@reqres.in", data.getData().getEmail());
     }
 
-
     @Test
     void checkTextSupport() {
         UserSupport support = given()
