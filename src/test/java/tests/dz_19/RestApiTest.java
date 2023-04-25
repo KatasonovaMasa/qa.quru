@@ -1,5 +1,6 @@
 package tests.dz_19;
 
+import io.qameta.allure.restassured.AllureRestAssured;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import tests.dz_19.lombok.LombokUserData;
@@ -18,6 +19,7 @@ public class RestApiTest {
     @Test
     void checkSingleEmail() {
         UserData data = given()
+                .filter(new AllureRestAssured())
                     .spec(Specs.request)
                 .when()
                     .get("/users/2")
@@ -31,6 +33,7 @@ public class RestApiTest {
     @Test
     void checkTextSupport() {
         UserSupport support = given()
+                .filter(new AllureRestAssured())
                     .spec(Specs.request)
                 .when()
                     .get("/users?page=2")
@@ -44,6 +47,7 @@ public class RestApiTest {
     @Test
     void checkSingleUserId() {
         UserData data = given()
+                .filter(new AllureRestAssured())
                     .spec(Specs.request)
                 .when()
                     .get("/users/2")
@@ -57,6 +61,7 @@ public class RestApiTest {
     @Test
     void checkSingleIdLombok() {
         LombokUserData data = given()
+                .filter(new AllureRestAssured())
                     .spec(Specs.request)
                 .when()
                     .get("/users/2")
@@ -71,6 +76,7 @@ public class RestApiTest {
     @Test
     public void checkSingleEmailGroovy() {
         given()
+                .filter(new AllureRestAssured())
                     .spec(Specs.request)
                 .when()
                     .get("/users")
@@ -83,6 +89,7 @@ public class RestApiTest {
     @Test
     public void checkSingleNameGroovy() {
         given()
+                .filter(new AllureRestAssured())
                     .spec(Specs.request)
                 .when()
                     .get("/users2")
@@ -95,6 +102,7 @@ public class RestApiTest {
     @Test
     public void deleteUserTest() {
         given()
+                .filter(new AllureRestAssured())
                     .spec(Specs.request)
                 .when()
                     .delete("/users2")
@@ -105,6 +113,7 @@ public class RestApiTest {
     @Test
     void checkSingleEmailLombok() {
         LombokUserData data = given()
+                .filter(new AllureRestAssured())
                 .spec(Specs.request)
                 .when()
                 .get("/users/2")
@@ -120,6 +129,7 @@ public class RestApiTest {
         String body = "{ \"name\": \"Katija\", " +
                 "\"job\": \"leader\" }";
         given()
+                .filter(new AllureRestAssured())
                     .spec(Specs.request)
                     .body(body)
                 .when()
@@ -135,6 +145,7 @@ public class RestApiTest {
         String body = "{ \"name\": \"Masa\", " +
                 "\"job\": \"leader\" }";
         given()
+                .filter(new AllureRestAssured())
                 .spec(Specs.request)
                 .body(body)
                 .when()
@@ -150,6 +161,7 @@ public class RestApiTest {
         String body = "{ \"email\": \"eve.holt@reqres.in\", " +
                 "\"password\": \"cityslicka\" }";
         given()
+                .filter(new AllureRestAssured())
                 .spec(Specs.request)
                 .body(body)
                 .when()
@@ -163,6 +175,7 @@ public class RestApiTest {
     @Test
     public void unsuccessLogin() {
         given()
+                .filter(new AllureRestAssured())
                 .spec(Specs.request)
                 .when()
                 .post("/login")
@@ -176,6 +189,7 @@ public class RestApiTest {
     public void registerUnsuccess() {
         String body = "{ \"email\": \"sydney@fife\"}";
         given()
+                .filter(new AllureRestAssured())
                 .spec(Specs.request)
                 .body(body)
                 .when()
