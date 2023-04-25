@@ -1,9 +1,11 @@
 package tests.dz_19;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
 import io.qameta.allure.restassured.AllureRestAssured;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -26,6 +28,7 @@ public class RestApiTest {
     @Owner("Катасонова Мария")
     @DisplayName("Проверка регистрации нового студента")
     void checkSingleEmail() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
         UserData data = given()
                 .filter(new AllureRestAssured())
                     .spec(Specs.request)
@@ -40,6 +43,7 @@ public class RestApiTest {
 
     @Test
     void checkTextSupport() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
         UserSupport support = given()
                 .filter(new AllureRestAssured())
                     .spec(Specs.request)
@@ -54,6 +58,7 @@ public class RestApiTest {
 
     @Test
     void checkSingleUserId() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
         UserData data = given()
                 .filter(new AllureRestAssured())
                     .spec(Specs.request)
@@ -68,6 +73,7 @@ public class RestApiTest {
 
     @Test
     void checkSingleIdLombok() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
         LombokUserData data = given()
                 .filter(new AllureRestAssured())
                     .spec(Specs.request)
@@ -206,5 +212,16 @@ public class RestApiTest {
                     .log().body()
                     .spec(responseUnsuccess)
                     .body("error", is("Missing password"));
+    }
+    @Test
+    void unSuccessfulLoginWithEmptyDataTest() {
+        given()
+                .log().uri()
+                .when()
+                .post("https://reqres.in/api/login")
+                .then()
+                .log().status()
+                .log().body()
+                .statusCode(415);
     }
 }
