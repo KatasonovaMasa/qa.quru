@@ -1,6 +1,7 @@
 package tests.dz_19;
 
 import io.qameta.allure.restassured.AllureRestAssured;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import tests.dz_19.lombok.LombokUserData;
@@ -17,6 +18,7 @@ import static tests.dz_18_19_Api.Specs.*;
 public class RestApiTest {
 
     @Test
+    @DisplayName("Xbnftncz&")
     void checkSingleEmail() {
         UserData data = given()
                 .filter(new AllureRestAssured())
