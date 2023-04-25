@@ -23,10 +23,10 @@ import static tests.dz_18_19_Api.Specs.*;
 public class RestApiTest {
 
     @Test
-    @Feature("Форма регистарции студентов")
-    @Story("Регистрация на сайте нового студента по steps")
+    @Feature("Апишка для тестов REQRES")
+    @Story("Пользователь")
     @Owner("Катасонова Мария")
-    @DisplayName("Проверка регистрации нового студента")
+    @DisplayName("Проверка email у пользователя")
     void checkSingleEmail() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         UserData data = given()
@@ -40,80 +40,68 @@ public class RestApiTest {
                     .extract().as(UserData.class);
         assertEquals("janet.weaver@reqres.in", data.getData().getEmail());
     }
-
     @Test
-    void checkTextSupport() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
-        UserSupport support = given()
-                .filter(new AllureRestAssured())
-                    .spec(Specs.request)
-                .when()
-                    .get("/users?page=2")
-                .then()
-                    .spec(Specs.responseSpec)
-                    .log().body()
-                    .extract().as(UserSupport.class);
-        assertEquals("To keep ReqRes free, contributions towards server costs are appreciated!", support.getSupport().getText());
-    }
-
-    @Test
+    @Feature("Апишка для тестов REQRES")
+    @Story("Пользователь")
+    @Owner("Катасонова Мария")
+    @DisplayName("Проверка id у пользователя")
     void checkSingleUserId() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         UserData data = given()
                 .filter(new AllureRestAssured())
-                    .spec(Specs.request)
+                .spec(Specs.request)
                 .when()
-                    .get("/users/2")
+                .get("/users/2")
                 .then()
-                    .spec(Specs.responseSpec)
-                    .log().body()
-                    .extract().as(UserData.class);
+                .spec(Specs.responseSpec)
+                .log().body()
+                .extract().as(UserData.class);
         assertEquals(2, data.getData().getId());
     }
 
     @Test
-    void checkSingleIdLombok() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
+    @Feature("Апишка для тестов REQRES")
+    @Story("Пользователь")
+    @Owner("Катасонова Мария")
+    @DisplayName("Проверка email у еще одного пользователя")
+    void checkSingleEmailLombok() {
         LombokUserData data = given()
                 .filter(new AllureRestAssured())
-                    .spec(Specs.request)
+                .spec(Specs.request)
                 .when()
-                    .get("/users/2")
+                .get("/users/2")
                 .then()
-                    .spec(Specs.responseSpec)
-                    .log().body()
-                    .extract().as(LombokUserData.class);
-        assertEquals(2, data.getUser().getId());
+                .spec(Specs.responseSpec)
+                .log().body()
+                .extract().as(LombokUserData.class);
+        assertEquals("janet.weaver@reqres.in", data.getUser().getEmail());
     }
 
-
     @Test
-    public void checkSingleEmailGroovy() {
+    @Feature("Апишка для тестов REQRES")
+    @Story("Пользователь")
+    @Owner("Катасонова Мария")
+    @DisplayName("Проверка редактирования имени у пользователя")
+    public void updateUsers() {
+        String body = "{ \"name\": \"Masa\", " +
+                "\"job\": \"leader\" }";
         given()
                 .filter(new AllureRestAssured())
-                    .spec(Specs.request)
+                .spec(Specs.request)
+                .body(body)
                 .when()
-                    .get("/users")
+                .post("/users/2")
                 .then()
-                    .log().body()
-                    .body("data.findAll{it.email =~/.*?@reqres.in/}.email.flatten()",
-                        hasItem("janet.weaver@reqres.in"));
+                .log().body()
+                .spec(responseSuccessAdd)
+                .body("name", is("Masa"));
     }
 
     @Test
-    public void checkSingleNameGroovy() {
-        given()
-                .filter(new AllureRestAssured())
-                    .spec(Specs.request)
-                .when()
-                    .get("/users2")
-                .then()
-                    .log().body()
-                    .body("data.findAll{it.name =~/./}.name.flatten()",
-                        hasItem("fuchsia rose"));
-    }
-
-    @Test
+    @Feature("Апишка для тестов REQRES")
+    @Story("Пользователь")
+    @Owner("Катасонова Мария")
+    @DisplayName("Удаление пользователя")
     public void deleteUserTest() {
         given()
                 .filter(new AllureRestAssured())
@@ -125,20 +113,10 @@ public class RestApiTest {
     }
 
     @Test
-    void checkSingleEmailLombok() {
-        LombokUserData data = given()
-                .filter(new AllureRestAssured())
-                    .spec(Specs.request)
-                .when()
-                    .get("/users/2")
-                .then()
-                    .spec(Specs.responseSpec)
-                    .log().body()
-                    .extract().as(LombokUserData.class);
-        assertEquals("janet.weaver@reqres.in", data.getUser().getEmail());
-    }
-
-    @Test
+    @Feature("Апишка для тестов REQRES")
+    @Story("Пользователь")
+    @Owner("Катасонова Мария")
+    @DisplayName("Создание пользователя")
     public void createUsers() {
         String body = "{ \"name\": \"Katija\", " +
                 "\"job\": \"leader\" }";
@@ -153,24 +131,44 @@ public class RestApiTest {
                     .spec(responseSuccessAdd)
                     .body("name", is("Katija"));
     }
-
     @Test
-    public void updateUsers() {
-        String body = "{ \"name\": \"Masa\", " +
-                "\"job\": \"leader\" }";
+    @Feature("Апишка для тестов REQRES")
+    @Story("Список пользователей")
+    @Owner("Катасонова Мария")
+    @DisplayName("Проверка что в списке пользователей есть выбранный email")
+    public void checkSingleNameGroovy() {
         given()
                 .filter(new AllureRestAssured())
-                    .spec(Specs.request)
-                    .body(body)
+                .spec(Specs.request)
                 .when()
-                    .post("/users/2")
+                .get("/users2")
                 .then()
-                    .log().body()
-                    .spec(responseSuccessAdd)
-                    .body("name", is("Masa"));
+                .log().body()
+                .body("data.findAll{it.name =~/./}.name.flatten()",
+                        hasItem("fuchsia rose"));
+    }
+    @Test
+    @Feature("Апишка для тестов REQRES")
+    @Story("Список пользователей")
+    @Owner("Катасонова Мария")
+    @DisplayName("Проверка что в списке пользователей есть выбранный email")
+    public void checkSingleEmailGroovy() {
+        given()
+                .filter(new AllureRestAssured())
+                .spec(Specs.request)
+                .when()
+                .get("/users")
+                .then()
+                .log().body()
+                .body("data.findAll{it.email =~/.*?@reqres.in/}.email.flatten()",
+                        hasItem("janet.weaver@reqres.in"));
     }
 
     @Test
+    @Feature("Апишка для тестов REQRES")
+    @Story("Авторизация")
+    @Owner("Катасонова Мария")
+    @DisplayName("Авторизация по логину")
     public void loginSuccess() {
         String body = "{ \"email\": \"eve.holt@reqres.in\", " +
                 "\"password\": \"cityslicka\" }";
@@ -187,6 +185,10 @@ public class RestApiTest {
     }
 
     @Test
+    @Feature("Апишка для тестов REQRES")
+    @Story("Авторизация")
+    @Owner("Катасонова Мария")
+    @DisplayName("Авторизация по логину")
     public void unsuccessLogin() {
         given()
                 .filter(new AllureRestAssured())
@@ -200,6 +202,10 @@ public class RestApiTest {
     }
 
     @Test
+    @Feature("Апишка для тестов REQRES")
+    @Story("Регистрация")
+    @Owner("Катасонова Мария")
+    @DisplayName("Ошибка при авторизации")
     public void registerUnsuccess() {
         String body = "{ \"email\": \"sydney@fife\"}";
         given()
@@ -213,15 +219,23 @@ public class RestApiTest {
                     .spec(responseUnsuccess)
                     .body("error", is("Missing password"));
     }
+
     @Test
-    void unSuccessfulLoginWithEmptyDataTest() {
-        given()
-                .log().uri()
+    @Feature("Апишка для тестов REQRES")
+    @Story("Список пользователей")
+    @Owner("Катасонова Мария")
+    @DisplayName("Проверка текста в теле json")
+    void checkTextSupport() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+        UserSupport support = given()
+                .filter(new AllureRestAssured())
+                .spec(Specs.request)
                 .when()
-                .post("https://reqres.in/api/login")
+                .get("/users?page=2")
                 .then()
-                .log().status()
+                .spec(Specs.responseSpec)
                 .log().body()
-                .statusCode(415);
+                .extract().as(UserSupport.class);
+        assertEquals("To keep ReqRes free, contributions towards server costs are appreciated!", support.getSupport().getText());
     }
 }
