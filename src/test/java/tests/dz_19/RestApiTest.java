@@ -106,7 +106,7 @@ public class RestApiTest {
                     .spec(Specs.request)
                 .when()
                     .delete("/users2")
-                    .then()
+                .then()
                 .spec(responseDelete);
     }
 
@@ -114,13 +114,13 @@ public class RestApiTest {
     void checkSingleEmailLombok() {
         LombokUserData data = given()
                 .filter(new AllureRestAssured())
-                .spec(Specs.request)
+                    .spec(Specs.request)
                 .when()
-                .get("/users/2")
+                    .get("/users/2")
                 .then()
-                .spec(Specs.responseSpec)
-                .log().body()
-                .extract().as(LombokUserData.class);
+                    .spec(Specs.responseSpec)
+                    .log().body()
+                    .extract().as(LombokUserData.class);
         assertEquals("janet.weaver@reqres.in", data.getUser().getEmail());
     }
 
@@ -146,14 +146,14 @@ public class RestApiTest {
                 "\"job\": \"leader\" }";
         given()
                 .filter(new AllureRestAssured())
-                .spec(Specs.request)
-                .body(body)
+                    .spec(Specs.request)
+                    .body(body)
                 .when()
-                .post("/users/2")
+                    .post("/users/2")
                 .then()
-                .log().body()
-                .spec(responseSuccessAdd)
-                .body("name", is("Masa"));
+                    .log().body()
+                    .spec(responseSuccessAdd)
+                    .body("name", is("Masa"));
     }
 
     @Test
@@ -162,27 +162,27 @@ public class RestApiTest {
                 "\"password\": \"cityslicka\" }";
         given()
                 .filter(new AllureRestAssured())
-                .spec(Specs.request)
-                .body(body)
+                    .spec(Specs.request)
+                    .body(body)
                 .when()
-                .post("/login")
+                    .post("/login")
                 .then()
-                .log().body()
-                .spec(responseSpec)
-                .body("token", is("QpwL5tke4Pnpja7X4"));
+                    .log().body()
+                    .spec(responseSpec)
+                    .body("token", is("QpwL5tke4Pnpja7X4"));
     }
 
     @Test
     public void unsuccessLogin() {
         given()
                 .filter(new AllureRestAssured())
-                .spec(Specs.request)
+                    .spec(Specs.request)
                 .when()
-                .post("/login")
+                    .post("/login")
                 .then()
-                .log().body()
-                .spec(responseUnsuccess)
-                .body("error", is("Missing email or username"));
+                    .log().body()
+                    .spec(responseUnsuccess)
+                    .body("error", is("Missing email or username"));
     }
 
     @Test
@@ -190,13 +190,13 @@ public class RestApiTest {
         String body = "{ \"email\": \"sydney@fife\"}";
         given()
                 .filter(new AllureRestAssured())
-                .spec(Specs.request)
-                .body(body)
+                    .spec(Specs.request)
+                    .body(body)
                 .when()
-                .post("/register")
+                    .post("/register")
                 .then()
-                .log().body()
-                .spec(responseUnsuccess)
-                .body("error", is("Missing password"));
+                    .log().body()
+                    .spec(responseUnsuccess)
+                    .body("error", is("Missing password"));
     }
 }
