@@ -6,6 +6,7 @@ import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.qameta.allure.selenide.AllureSelenide;
+import io.restassured.http.ContentType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -18,6 +19,7 @@ import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static tests.dz_18_19_Api.Specs.*;
+import static tests.dz_19.helpers.CustomApiListener.withCustomTemplates;
 
 @Tag("api_reqres")
 public class RestApiTest {
@@ -30,7 +32,10 @@ public class RestApiTest {
     void checkSingleEmail() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         UserData data = given()
+                .filter(withCustomTemplates())
                 .filter(new AllureRestAssured())
+                .log().uri()
+                .contentType(ContentType.JSON)
                     .spec(Specs.request)
                 .when()
                     .get("/users/2")
@@ -48,6 +53,7 @@ public class RestApiTest {
     void checkSingleUserId() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         UserData data = given()
+                .filter(withCustomTemplates())
                 .filter(new AllureRestAssured())
                 .spec(Specs.request)
                 .when()
@@ -67,6 +73,7 @@ public class RestApiTest {
     void checkSingleEmailLombok() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         LombokUserData data = given()
+                .filter(withCustomTemplates())
                 .filter(new AllureRestAssured())
                 .spec(Specs.request)
                 .when()
@@ -89,6 +96,7 @@ public class RestApiTest {
         data.setName("Masa");
         data.setJob("QA");
         AvtorisationResponsePojoModel response = given()
+                .filter(withCustomTemplates())
                 .filter(new AllureRestAssured())
                 .spec(Specs.request)
                 .body(data)
@@ -110,6 +118,7 @@ public class RestApiTest {
     public void deleteUserTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         given()
+                .filter(withCustomTemplates())
                 .filter(new AllureRestAssured())
                     .spec(Specs.request)
                 .when()
@@ -129,6 +138,7 @@ public class RestApiTest {
         data.setName("Katija");
         data.setJob("leader");
         AvtorisationResponsePojoModel response = given()
+                .filter(withCustomTemplates())
                 .filter(new AllureRestAssured())
                     .spec(Specs.request)
                     .body(data)
@@ -149,6 +159,7 @@ public class RestApiTest {
     public void checkSingleNameGroovy() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         given()
+                .filter(withCustomTemplates())
                 .filter(new AllureRestAssured())
                 .spec(Specs.request)
                 .when()
@@ -166,6 +177,7 @@ public class RestApiTest {
     public void checkSingleEmailGroovy() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         given()
+                .filter(withCustomTemplates())
                 .filter(new AllureRestAssured())
                 .spec(Specs.request)
                 .when()
@@ -187,6 +199,7 @@ public class RestApiTest {
         data.setEmail("eve.holt@reqres.in");
         data.setPassword("cityslicka");
         LoginResponsePojoModel response  = given()
+                .filter(withCustomTemplates())
                 .filter(new AllureRestAssured())
                     .spec(Specs.request)
                     .body(data)
@@ -207,6 +220,7 @@ public class RestApiTest {
     public void unsuccessLogin() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         given()
+                .filter(withCustomTemplates())
                 .filter(new AllureRestAssured())
                     .spec(Specs.request)
                 .when()
@@ -227,6 +241,7 @@ public class RestApiTest {
         LoginBodyPojoModel data = new LoginBodyPojoModel();
         data.setEmail("sydney@fife");
         given()
+                .filter(withCustomTemplates())
                 .filter(new AllureRestAssured())
                     .spec(Specs.request)
                     .body(data)
@@ -246,6 +261,7 @@ public class RestApiTest {
     void checkTextSupport() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         UserSupport support = given()
+                .filter(withCustomTemplates())
                 .filter(new AllureRestAssured())
                 .spec(Specs.request)
                 .when()
