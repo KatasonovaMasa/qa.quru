@@ -4,7 +4,6 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
-import io.qameta.allure.restassured.AllureRestAssured;
 import io.qameta.allure.selenide.AllureSelenide;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.DisplayName;
@@ -33,7 +32,6 @@ public class RestApiTest {
         SelenideLogger.addListener("allure", new AllureSelenide());
         UserData data = given()
                 .filter(withCustomTemplates())
-                .filter(new AllureRestAssured())
                 .log().uri()
                 .contentType(ContentType.JSON)
                     .spec(Specs.request)
@@ -54,7 +52,6 @@ public class RestApiTest {
         SelenideLogger.addListener("allure", new AllureSelenide());
         UserData data = given()
                 .filter(withCustomTemplates())
-                .filter(new AllureRestAssured())
                 .spec(Specs.request)
                 .when()
                 .get("/users/2")
@@ -74,7 +71,6 @@ public class RestApiTest {
         SelenideLogger.addListener("allure", new AllureSelenide());
         LombokUserData data = given()
                 .filter(withCustomTemplates())
-                .filter(new AllureRestAssured())
                 .spec(Specs.request)
                 .when()
                 .get("/users/2")
@@ -97,7 +93,6 @@ public class RestApiTest {
         data.setJob("QA");
         AvtorisationResponsePojoModel response = given()
                 .filter(withCustomTemplates())
-                .filter(new AllureRestAssured())
                 .spec(Specs.request)
                 .body(data)
                 .when()
@@ -119,7 +114,6 @@ public class RestApiTest {
         SelenideLogger.addListener("allure", new AllureSelenide());
         given()
                 .filter(withCustomTemplates())
-                .filter(new AllureRestAssured())
                     .spec(Specs.request)
                 .when()
                     .delete("/users2")
@@ -139,7 +133,6 @@ public class RestApiTest {
         data.setJob("leader");
         AvtorisationResponsePojoModel response = given()
                 .filter(withCustomTemplates())
-                .filter(new AllureRestAssured())
                     .spec(Specs.request)
                     .body(data)
                 .when()
@@ -160,7 +153,6 @@ public class RestApiTest {
         SelenideLogger.addListener("allure", new AllureSelenide());
         given()
                 .filter(withCustomTemplates())
-                .filter(new AllureRestAssured())
                 .spec(Specs.request)
                 .when()
                 .get("/users2")
@@ -178,7 +170,6 @@ public class RestApiTest {
         SelenideLogger.addListener("allure", new AllureSelenide());
         given()
                 .filter(withCustomTemplates())
-                .filter(new AllureRestAssured())
                 .spec(Specs.request)
                 .when()
                 .get("/users")
@@ -200,7 +191,6 @@ public class RestApiTest {
         data.setPassword("cityslicka");
         LoginResponsePojoModel response  = given()
                 .filter(withCustomTemplates())
-                .filter(new AllureRestAssured())
                     .spec(Specs.request)
                     .body(data)
                 .when()
@@ -221,7 +211,6 @@ public class RestApiTest {
         SelenideLogger.addListener("allure", new AllureSelenide());
         given()
                 .filter(withCustomTemplates())
-                .filter(new AllureRestAssured())
                     .spec(Specs.request)
                 .when()
                     .post("/login")
@@ -242,7 +231,6 @@ public class RestApiTest {
         data.setEmail("sydney@fife");
         given()
                 .filter(withCustomTemplates())
-                .filter(new AllureRestAssured())
                     .spec(Specs.request)
                     .body(data)
                 .when()
@@ -262,7 +250,6 @@ public class RestApiTest {
         SelenideLogger.addListener("allure", new AllureSelenide());
         UserSupport support = given()
                 .filter(withCustomTemplates())
-                .filter(new AllureRestAssured())
                 .spec(Specs.request)
                 .when()
                 .get("/users?page=2")
