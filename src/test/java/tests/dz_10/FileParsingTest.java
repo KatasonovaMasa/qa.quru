@@ -57,6 +57,7 @@ public class FileParsingTest {
             fail("No CSV file found in zip archive");
         }
     }
+
     @Test
     void zipXlsTest() throws Exception {
         try (InputStream is2 = cl.getResourceAsStream("filetest/test.zip");
