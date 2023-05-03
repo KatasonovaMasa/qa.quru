@@ -3,9 +3,13 @@ package tests.dz_21;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.javafaker.Faker;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
 import io.qameta.allure.selenide.AllureSelenide;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Cookie;
@@ -39,7 +43,12 @@ public class CreateTestcaseTests extends TestBase {
 
 
     @Test
+    @Feature("Апишка для тестов Allure")
+    @Story("Тест кейс")
+    @Owner("Катасонова Мария")
+    @DisplayName("Создание тест кейса")
     void createWitApiOnlyUiTest() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
         Faker faker = new Faker();
         String testCaseName = faker.name().fullName();
 
@@ -65,6 +74,7 @@ public class CreateTestcaseTests extends TestBase {
         );
 
         step("Verify testcase name", () -> {
+
         open("/favicon.ico");
 
         Cookie authorizationCookie = new Cookie("ALLURE_TESTOPS_SESSION", "dce276c1-dbed-44fd-ac4c-0eb41166e73b");
@@ -78,6 +88,10 @@ public class CreateTestcaseTests extends TestBase {
     }
 
     @Test
+    @Feature("Апишка для тестов Allure")
+    @Story("Тест кейс")
+    @Owner("Катасонова Мария")
+    @DisplayName("Редактирование тест кейса")
     void editeWitApiOnlyUiTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
         Faker faker = new Faker();
