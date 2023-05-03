@@ -111,8 +111,15 @@ task master_qa_quru_test(type: Test){
         includeTags("qa_quru")//должно совпадать с названием @Tag в классе тестов
     }
 }
-task master_api_reqres(type: Test){
-    useJUnitPlatform{
+task master_api_reqres(type: Test) {
+    useJUnitPlatform {
         includeTags("api_reqres")//должно совпадать с названием @Tag в классе тестов
     }
 }
+task master_api_allure(type: Test){
+    useJUnitPlatform{
+        includeTags("api_allure")//должно совпадать с названием @Tag в классе тестов
+    }
+}
+
+

@@ -22,13 +22,13 @@ import static java.lang.String.format;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-@Tag("api_reqres")
+@Tag("api_allure")
 public class CreateTestcaseTests extends TestBase {
 
     @BeforeAll
     static void beforeAll(){
         Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.baseUrl = "https://allure.autotests.cloud";
     }
     RegistrationPage registrationPage = new RegistrationPage();
     static String login = "allure8",
@@ -150,12 +150,10 @@ public class CreateTestcaseTests extends TestBase {
             String testCaseUrl = format( "/project/%s/test-cases/%s", projectId, testCaseId);
 
             open(testCaseUrl);
+            registrationPage.takeScreenshot();
         });
 
-        step("Edit", () -> {
 
-        });
-        registrationPage.takeScreenshot();
     }
 
 }
