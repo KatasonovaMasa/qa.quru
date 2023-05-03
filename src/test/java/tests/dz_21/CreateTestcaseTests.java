@@ -29,6 +29,7 @@ import static java.lang.String.format;
 @Feature("Апишка для тестов Allure")
 @Story("Тест кейс")
 @Owner("Катасонова Мария")
+@DisplayName("Тесты в allure")
 public class CreateTestcaseTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
