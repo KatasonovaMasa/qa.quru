@@ -26,6 +26,9 @@ import static java.lang.String.format;
 
 
 @Tag("api_allure")
+@Feature("Апишка для тестов Allure")
+@Story("Тест кейс")
+@Owner("Катасонова Мария")
 public class CreateTestcaseTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
