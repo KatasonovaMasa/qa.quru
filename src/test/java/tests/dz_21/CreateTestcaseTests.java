@@ -21,7 +21,6 @@ import static io.restassured.RestAssured.given;
 import static java.lang.String.format;
 import static org.assertj.core.api.Assertions.assertThat;
 
-
 @Tag("api_reqres")
 public class CreateTestcaseTests extends TestBase {
 
