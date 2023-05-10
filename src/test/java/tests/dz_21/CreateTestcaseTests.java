@@ -3,6 +3,7 @@ package tests.dz_21;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.javafaker.Faker;
+import com.google.inject.Inject;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
@@ -18,7 +19,9 @@ import tests.dz_21.models.CreateTestCaseBody;
 import tests.dz_21.models.CreateTestCaseResponse;
 import tests.form.TestBase;
 
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selectors.byName;
+import static com.codeborne.selenide.Selectors.withText;
+import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
@@ -31,6 +34,9 @@ import static java.lang.String.format;
 @Owner("Катасонова Мария")
 @DisplayName("Тесты в allure")
 public class CreateTestcaseTests extends TestBase {
+
+    @Inject
+    private AllureSteps allureSteps;
 
     RegistrationPage registrationPage = new RegistrationPage();
     static String login = "allure8",
@@ -64,7 +70,7 @@ public class CreateTestcaseTests extends TestBase {
                         .log().all()
                         .header("X-XSRF-TOKEN", "91590414-274a-4cfa-bb89-9ef757a606aa")
                         .cookies("XSRF-TOKEN", "91590414-274a-4cfa-bb89-9ef757a606aa",
-                                "ALLURE_TESTOPS_SESSION", "dce276c1-dbed-44fd-ac4c-0eb41166e73b")
+                                "ALLURE_TESTOPS_SESSION", "97d5ca43-e032-4458-a78e-9b048f745c6e")
                         .contentType("application/json;charset=UTF-8")
                         .body(testCaseBody)
                         .queryParam("projectId", projectId)
@@ -81,14 +87,26 @@ public class CreateTestcaseTests extends TestBase {
 
         open("/favicon.ico");
 
-        Cookie authorizationCookie = new Cookie("ALLURE_TESTOPS_SESSION", "dce276c1-dbed-44fd-ac4c-0eb41166e73b");
+        Cookie authorizationCookie = new Cookie("ALLURE_TESTOPS_SESSION", "97d5ca43-e032-4458-a78e-9b048f745c6e");
         getWebDriver().manage().addCookie(authorizationCookie);
 
         Integer testCaseId = createTestCaseResponse.getId();
+
         String testCaseUrl = format( "/project/%s/test-cases/%s", projectId, testCaseId);
 
-        open(testCaseUrl);
+        open(testCaseUrl + "?treeId=0");
+            $x("//*[contains(@class, 'Menu__trigger')]").click();
+            $x("//span[text()='Rename test case']").click();
+            String name = String.valueOf($(byName("name")).setValue("name"));
+            $x("//*[contains(@class, 'Modal__content')]//*[@name='submit']").click();
+            withText(name);
+
         });
+
+
+
+
+
     }
 
     @Test

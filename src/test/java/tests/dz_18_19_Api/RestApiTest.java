@@ -10,7 +10,6 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.Matchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static tests.dz_18_19_Api.Specs.*;
 
 @Tag("api_reqres")
 public class RestApiTest {
@@ -101,7 +100,7 @@ public class RestApiTest {
                 .when()
                     .delete("/users2")
                     .then()
-                .spec(responseDelete);
+                .spec(Specs.responseDelete);
     }
 
     @Test
@@ -128,7 +127,7 @@ public class RestApiTest {
                     .post("/users")
                 .then()
                     .log().body()
-                    .spec(responseSuccessAdd)
+                    .spec(Specs.responseSuccessAdd)
                     .body("name", is("Katija"));
     }
 
@@ -143,7 +142,7 @@ public class RestApiTest {
                 .post("/users/2")
                 .then()
                 .log().body()
-                .spec(responseSuccessAdd)
+                .spec(Specs.responseSuccessAdd)
                 .body("name", is("Masa"));
     }
 
@@ -158,7 +157,7 @@ public class RestApiTest {
                 .post("/login")
                 .then()
                 .log().body()
-                .spec(responseSpec)
+                .spec(Specs.responseSpec)
                 .body("token", is("QpwL5tke4Pnpja7X4"));
     }
 
@@ -170,7 +169,7 @@ public class RestApiTest {
                 .post("/login")
                 .then()
                 .log().body()
-                .spec(responseUnsuccess)
+                .spec(Specs.responseUnsuccess)
                 .body("error", is("Missing email or username"));
     }
 
@@ -184,7 +183,7 @@ public class RestApiTest {
                 .post("/register")
                 .then()
                 .log().body()
-                .spec(responseUnsuccess)
+                .spec(Specs.responseUnsuccess)
                 .body("error", is("Missing password"));
     }
 }

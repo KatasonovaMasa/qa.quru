@@ -1,4 +1,4 @@
-package tests.dz_12;
+package tests.dz_11.dz_12;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import generators.StudentDataGenerator;
